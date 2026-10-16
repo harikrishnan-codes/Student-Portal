@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="icon" href="./assets/logo.webp" />
+    <link rel="stylesheet" href="schedule.css" />
+    <link rel="stylesheet" href="root.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header class="portal-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo" aria-label="Student Portal Home">
+                <img src="./assets/logo 1.webp" alt="logo" height="60px" width="150px">
+            </a>
+
+            <nav aria-label="Main Navigation">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+                    </li>
+                    <li><a href="courses.html" class="nav-link"><i class="fa-solid fa-book-open-reader"></i> My
+                            Courses</a></li>
+                    <li><a href="grades.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Grades</a></li>
+                    <li><a href="schedule.html" class="nav-link"><i class="fa-solid fa-calendar-days"></i> Schedule</a>
+                    </li>
+                    <li><a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope-open-text"></i>
+                            Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="auth.html" class="btn btn-secondary"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign
+                    In</a>
+                <a href="auth.html" class="btn btn-primary"><i class="fa-solid fa-user-shield"></i> Portal Access</a>
+            </div>
+
+            <button type="button" class="hamburger-toggle" id="hamburgerBtn" aria-label="Open navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+        <div class="drawer-header">
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 1.webp" alt="logo" height="60px" width="150px">
+            </a>
+            <button type="button" class="drawer-close-btn" id="closeDrawerBtn" aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <ul class="drawer-nav-menu">
+            <li><a href="index.html" class="drawer-nav-link"><i class="fa-solid fa-table-columns"></i> Home</a>
+            </li>
+            <li><a href="courses.html" class="drawer-nav-link"><i class="fa-solid fa-book-open-reader"></i> My
+                    Courses</a></li>
+            <li><a href="grades.html" class="drawer-nav-link"><i class="fa-solid fa-chart-line"></i> Grades</a></li>
+            <li><a href="schedule.html" class="drawer-nav-link"><i class="fa-solid fa-calendar-days"></i> Schedule</a>
+            </li>
+            <li><a href="contact.html" class="drawer-nav-link"><i class="fa-solid fa-envelope-open-text"></i>
+                    Contact</a></li>
+        </ul>
+
+        <div class="drawer-footer">
+            <a href="auth.html" class="btn btn-secondary" style="width: 100%;"><i
+                    class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</a>
+            <a href="auth.html" class="btn btn-primary" style="width: 100%;"><i class="fa-solid fa-user-shield"></i>
+                Portal Access</a>
+        </div>
+    </aside>
+
+
+
+
+
+
+    <section class="classy-hero-section" id="schedule-classy-hero">
+        <!-- Full Photographic Background Layer with Overlay -->
+        <div class="hero-bg-media-wrap" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80"
+                alt="Campus Architecture & Lecture Complex" class="hero-bg-media-img" />
+            <!-- Deep Tinted Vignette & Ambient Color Wash -->
+            <div class="hero-bg-overlay-tint"></div>
+            <div class="hero-bg-radial-spotlight"></div>
+            <div class="hero-bg-grid-mesh"></div>
+        </div>
+
+        <div class="container classy-hero-container">
+            <div class="classy-hero-grid">
+
+                <!-- Left Column: Copy & Dual Actions -->
+                <div class="classy-hero-copy">
+
+                    <!-- Floating Pill Announcement Badge -->
+                    <a href="#schedule-matrix-section" class="floating-announcement-pill">
+                        <span class="pill-spark-icon">
+                            <i class="fa-solid fa-bolt-lightning"></i>
+                        </span>
+                        <span class="pill-label">Fall 2026 Live Registration Active</span>
+                        <span class="pill-arrow-tag">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
+
+                    <!-- Large Tight-Tracked Heading -->
+                    <h1 class="classy-hero-heading">
+                        Calibrated Academic Routines, <span class="gradient-text-shimmer">Engineered with
+                            Precision.</span>
+                    </h1>
+
+                    <!-- Narrative Subtitle -->
+                    <p class="classy-hero-sub">
+                        A synchronized university console orchestrating lectures, reserved compute lab clusters, and
+                        1-on-1 faculty advisory sessions into a zero-conflict timetable architecture.
+                    </p>
+
+                    <!-- Dual CTA Buttons -->
+                    <div class="classy-hero-actions">
+                        <a href="#schedule-matrix-section" class="btn btn-hero-solid">
+                            <span>Explore Schedule Matrix</span>
+                            <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                        <a href="courses.html" class="btn btn-hero-ghost">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span>Configure Electives</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Metric Strip -->
+                    <div class="hero-trust-metrics">
+                        <div class="trust-stat">
+                            <span class="trust-stat-number">99.98%</span>
+                            <span class="trust-stat-label">Conflict Resolution</span>
+                        </div>
+                        <div class="trust-stat-separator"></div>
+                        <div class="trust-stat">
+                            <span class="trust-stat-number">&lt; 15s</span>
+                            <span class="trust-stat-label">CalDAV Sync Latency</span>
+                        </div>
+                        <div class="trust-stat-separator"></div>
+                        <div class="trust-stat">
+                            <span class="trust-stat-number">120 ECTS</span>
+                            <span class="trust-stat-label">Audit Verified</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Floating 3D Tilt Preview Card -->
+                <div class="classy-hero-visual">
+                    <div class="tilt-card-perspective-wrapper" id="heroTiltWrapper">
+                        <div class="floating-tilt-card" id="heroTiltCard">
+
+                            <div class="card-ambient-specular"></div>
+
+                            <!-- Card Header -->
+                            <div class="tilt-card-header">
+                                <div class="card-status-beacon">
+                                    <span class="beacon-dot"></span>
+                                    <span class="beacon-text">Active Semester Slot</span>
+                                </div>
+                                <span class="card-term-tag">Week 08 &bull; Realtime</span>
+                            </div>
+
+                            <!-- Main Course Showcase -->
+                            <div class="tilt-card-main">
+                                <div class="course-icon-badge">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                </div>
+                                <div class="course-meta">
+                                    <span class="course-code">CS-482 &bull; 4 Credits</span>
+                                    <h3 class="course-name">Deep Learning & Autonomous Robotics</h3>
+                                    <span class="course-room"><i class="fa-solid fa-location-dot"></i> Turing Hall
+                                        402</span>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Simulation Block -->
+                            <div class="tilt-timeline-box">
+                                <div class="timeline-row">
+                                    <span class="time-label">Lecture Runtime</span>
+                                    <span class="time-stamp">10:30 AM &ndash; 12:45 PM</span>
+                                </div>
+                                <div class="timeline-progress-track">
+                                    <div class="progress-fill" style="width: 68%;"></div>
+                                </div>
+                                <div class="timeline-sub-row">
+                                    <span>In Progress (68 min left)</span>
+                                    <span>Dr. Elena Rostova</span>
+                                </div>
+                            </div>
+
+                            <!-- Card Footer -->
+                            <div class="tilt-card-footer">
+                                <div class="seat-occupancy">
+                                    <i class="fa-solid fa-users"></i>
+                                    <span>48/50 Cohort Desks Filled</span>
+                                </div>
+                                <span class="card-action-pill">
+                                    <i class="fa-solid fa-satellite-dish"></i> Live Stream
+                                </span>
+                            </div>
+
+                            <!-- Floating Validation Badge -->
+                            <div class="floating-satellite-tag">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Ledger Node Validated</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="schedule-deadlines-section" id="schedule-deadlines-section">
+        <div class="container">
+
+            <!-- Section Header -->
+            <div class="deadlines-section-header">
+                <span class="deadlines-kicker">
+                    <i class="fa-solid fa-stopwatch"></i> Critical Milestones & Hall Allocations
+                </span>
+                <h2 class="deadlines-title">Midterm & Final Examination Timings</h2>
+                <p class="deadlines-subtitle">
+                    Review invigilated exam sittings, verified seating positions, and major assessment submission
+                    windows across all enrolled cohorts.
+                </p>
+            </div>
+
+            <!-- Active Countdown & Live Terminal Strip -->
+            <div class="deadlines-terminal-card">
+                <div class="terminal-left">
+                    <span class="terminal-pulse"></span>
+                    <div class="terminal-info">
+                        <span class="terminal-tag">Next Locked Milestone</span>
+                        <h3 class="terminal-subject">CS-482: Neural Vision Midterm Exam</h3>
+                    </div>
+                </div>
+                <div class="terminal-countdown" id="examCountdown">
+                    <div class="countdown-block">
+                        <span class="countdown-val" id="cdDays">04</span>
+                        <span class="countdown-lbl">Days</span>
+                    </div>
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-block">
+                        <span class="countdown-val" id="cdHours">14</span>
+                        <span class="countdown-lbl">Hours</span>
+                    </div>
+                    <span class="countdown-sep">:</span>
+                    <div class="countdown-block">
+                        <span class="countdown-val" id="cdMins">32</span>
+                        <span class="countdown-lbl">Mins</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Examination Cards Grid -->
+            <div class="deadlines-grid">
+
+                <!-- Exam Card 1 -->
+                <article class="deadline-item-card priority-high">
+                    <div class="deadline-card-badge">
+                        <span class="badge-dot"></span>
+                        <span>In-Person Formal Exam</span>
+                    </div>
+
+                    <div class="deadline-header">
+                        <span class="deadline-code">CS-482 &bull; 35% Weight</span>
+                        <h4 class="deadline-course-title">Deep Learning Architecture</h4>
+                    </div>
+
+                    <div class="deadline-meta-list">
+                        <div class="meta-row">
+                            <span class="meta-label"><i class="fa-regular fa-calendar"></i> Date</span>
+                            <span class="meta-val">Oct 24, 2026 (Wednesday)</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label"><i class="fa-regular fa-clock"></i> Window</span>
+                            <span class="meta-val">09:00 AM &ndash; 12:00 PM (180 mins)</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label"><i class="fa-solid fa-location-dot"></i> Seating</span>
+                            <span class="meta-val highlight">Euler Amphitheater &bull; Desk #E-42</span>
+                        </div>
+                    </div>
+
+                    <div class="deadline-card-footer">
+                        <span class="clearance-tag valid">
+                            <i class="fa-solid fa-shield-check"></i> Hall Ticket Cleared
+                        </span>
+                        <a href="error.html" class="deadline-btn">
+                            <span>Seating Pass</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Exam Card 2 -->
+                <article class="deadline-item-card">
+                    <div class="deadline-card-badge lab-badge">
+                        <span class="badge-dot cyan"></span>
+                        <span>Practical Lab Defense</span>
+                    </div>
+
+                    <div class="deadline-header">
+                        <span class="deadline-code">CS-401 &bull; 40% Weight</span>
+                        <h4 class="deadline-course-title">Distributed Consensus Sandbox</h4>
+                    </div>
+
+                    <div class="deadline-meta-list">
+                        <div class="meta-row">
+                            <span class="meta-label"><i class="fa-regular fa-calendar"></i> Date</span>
+                            <span class="meta-val">Nov 04, 2026 (Monday)</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label"><i class="fa-regular fa-clock"></i> Window</span>
+                            <span class="meta-val">02:00 PM &ndash; 05:00 PM (180 mins)</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label"><i class="fa-solid fa-location-dot"></i> Seating</span>
+                            <span class="meta-val highlight">Quantum Lab B-12 &bull; Node #16</span>
+                        </div>
+                    </div>
+
+                    <div class="deadline-card-footer">
+                        <span class="clearance-tag valid">
+                            <i class="fa-solid fa-shield-check"></i> Terminal Approved
+                        </span>
+                        <a href="error.html" class="deadline-btn">
+                            <span>Seating Pass</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Exam Card 3 -->
+                <article class="deadline-item-card">
+                    <div class="deadline-card-badge seminar-badge">
+                        <span class="badge-dot purple"></span>
+                        <span>Proctored Written Theory</span>
+                    </div>
+
+                    <div class="deadline-header">
+                        <span class="deadline-code">MATH-302 &bull; 35% Weight</span>
+                        <h4 class="deadline-course-title">Stochastic Proof & Probability</h4>
+                    </div>
+
+                    <div class="deadline-meta-list">
+                        <div class="meta-row">
+                            <span class="meta-label"><i class="fa-regular fa-calendar"></i> Date</span>
+                            <span class="meta-val">Nov 12, 2026 (Thursday)</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label"><i class="fa-regular fa-clock"></i> Window</span>
+                            <span class="meta-val">10:00 AM &ndash; 01:00 PM (180 mins)</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="meta-label"><i class="fa-solid fa-location-dot"></i> Seating</span>
+                            <span class="meta-val highlight">Turing Hall 402 &bull; Desk #T-19</span>
+                        </div>
+                    </div>
+
+                    <div class="deadline-card-footer">
+                        <span class="clearance-tag valid">
+                            <i class="fa-solid fa-shield-check"></i> Hall Ticket Cleared
+                        </span>
+                        <a href="error.html" class="deadline-btn">
+                            <span>Seating Pass</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="schedule-locations-section" id="schedule-locations-section">
+        <div class="container">
+
+            <!-- Section Header adhering to light surface typography specifications -->
+            <div class="locations-section-header">
+                <span class="locations-kicker">
+                    <i class="fa-solid fa-map-pin"></i> Campus Zone Facilities & Capacity
+                </span>
+                <h2 class="locations-title">Lecture Theatres, Computing Clusters & Venues</h2>
+                <p class="locations-subtitle">
+                    Explore live building occupancy metrics, wheelchair-accessible corridors, and laboratory
+                    infrastructure supporting your enrolled courses.
+                </p>
+            </div>
+
+            <!-- Filter Pills for Venues -->
+            <div class="locations-filter-row">
+                <button type="button" class="loc-filter-chip active" data-filter="all">All Zones</button>
+                <button type="button" class="loc-filter-chip" data-filter="computing">Computing Clusters</button>
+                <button type="button" class="loc-filter-chip" data-filter="amphitheater">Lecture Halls</button>
+                <button type="button" class="loc-filter-chip" data-filter="research">Research Labs</button>
+            </div>
+
+            <!-- Interactive Facility Cards Grid -->
+            <div class="locations-grid">
+
+                <!-- Facility Card 1 -->
+                <article class="facility-card" data-category="amphitheater">
+                    <div class="facility-card-media">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
+                            alt="Turing Lecture Amphitheater" class="facility-img" />
+                        <span class="facility-status-badge available">
+                            <span class="badge-dot-live"></span>
+                            <span>Open &bull; Verified Airflow</span>
+                        </span>
+                    </div>
+
+                    <div class="facility-card-content">
+                        <div class="facility-meta-top">
+                            <span class="facility-zone">Engineering Quad &bull; Level 4</span>
+                            <span class="facility-capacity">Capacity: 180 Desks</span>
+                        </div>
+
+                        <h3 class="facility-name">Turing Lecture Amphitheater (Rm 402)</h3>
+                        <p class="facility-desc">
+                            Primary lecture space for CS-482. Outfitted with dual high-luminance laser projection,
+                            binaural audio arrays, and tier-stepped power outlets.
+                        </p>
+
+                        <div class="facility-perks-list">
+                            <span class="perk-tag"><i class="fa-solid fa-wheelchair"></i> ADA Compliant</span>
+                            <span class="perk-tag"><i class="fa-solid fa-wifi"></i> Wi-Fi 6E Multi-AP</span>
+                            <span class="perk-tag"><i class="fa-solid fa-plug"></i> 100W USB-C PD</span>
+                        </div>
+
+                        <div class="facility-footer">
+                            <div class="facility-current-occupancy">
+                                <span class="occ-label">Live Ingress:</span>
+                                <span class="occ-value">48 / 180 Seated</span>
+                            </div>
+                            <a href="error.html" class="facility-nav-btn">
+                                <span>Indoor Nav</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Facility Card 2 -->
+                <article class="facility-card" data-category="computing">
+                    <div class="facility-card-media">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80"
+                            alt="Quantum Computing Sandbox Lab B-12" class="facility-img" />
+                        <span class="facility-status-badge restricted">
+                            <span class="badge-dot-live red"></span>
+                            <span>ID Badge Required</span>
+                        </span>
+                    </div>
+
+                    <div class="facility-card-content">
+                        <div class="facility-meta-top">
+                            <span class="facility-zone">Science Concourse &bull; Sub-Level B</span>
+                            <span class="facility-capacity">Capacity: 36 Workstations</span>
+                        </div>
+
+                        <h3 class="facility-name">Quantum Sandbox Cluster (Lab B-12)</h3>
+                        <p class="facility-desc">
+                            High-performance development environment hosting dedicated NVIDIA workstation nodes for
+                            distributed algorithm profiling and neural kernels.
+                        </p>
+
+                        <div class="facility-perks-list">
+                            <span class="perk-tag"><i class="fa-solid fa-server"></i> 8x RTX 6000 Ada</span>
+                            <span class="perk-tag"><i class="fa-solid fa-temperature-arrow-down"></i> Cryo Cooled</span>
+                            <span class="perk-tag"><i class="fa-solid fa-key"></i> Keycard NFC</span>
+                        </div>
+
+                        <div class="facility-footer">
+                            <div class="facility-current-occupancy">
+                                <span class="occ-label">Station Queue:</span>
+                                <span class="occ-value">Zero Wait Time</span>
+                            </div>
+                            <a href="error.html" class="facility-nav-btn">
+                                <span>Indoor Nav</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Facility Card 3 -->
+                <article class="facility-card" data-category="research">
+                    <div class="facility-card-media">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+                            alt="Faculty Colloquium & Advisory Deck" class="facility-img" />
+                        <span class="facility-status-badge available">
+                            <span class="badge-dot-live"></span>
+                            <span>Open &bull; Quiet Zone</span>
+                        </span>
+                    </div>
+
+                    <div class="facility-card-content">
+                        <div class="facility-meta-top">
+                            <span class="facility-zone">Dean's Plaza &bull; West Atrium</span>
+                            <span class="facility-capacity">Capacity: 64 Pods</span>
+                        </div>
+
+                        <h3 class="facility-name">Faculty Advisory Deck & Study Loft</h3>
+                        <p class="facility-desc">
+                            Quiet consultation floor designated for 1-on-1 thesis reviews, teaching assistant debugging
+                            desks, and cohort discussion lounges.
+                        </p>
+
+                        <div class="facility-perks-list">
+                            <span class="perk-tag"><i class="fa-solid fa-volume-xmark"></i> Sound Dampened</span>
+                            <span class="perk-tag"><i class="fa-solid fa-chalkboard"></i> Smart Whiteboards</span>
+                            <span class="perk-tag"><i class="fa-solid fa-mug-saucer"></i> Cafe Pod</span>
+                        </div>
+
+                        <div class="facility-footer">
+                            <div class="facility-current-occupancy">
+                                <span class="occ-label">Active Desks:</span>
+                                <span class="occ-value">12 Pods Free</span>
+                            </div>
+                            <a href="error.html" class="facility-nav-btn">
+                                <span>Indoor Nav</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="schedule-split-sync-section" id="schedule-split-sync">
+        <div class="container">
+            <div class="split-sync-layout">
+
+                <!-- Left Column: Editorial & Synchronization Controls -->
+                <div class="split-col-content">
+                    <div class="split-header-block">
+                        <span class="locations-kicker">
+                            <i class="fa-solid fa-arrows-rotate"></i> Real-Time Terminal Sync
+                        </span>
+                        <h2 class="locations-title">
+                            Seamless Cross-Device Timetable Integration
+                        </h2>
+                        <p class="locations-subtitle">
+                            Synchronize lecture shifts, room reassignment alerts, and exam deadlines instantly across
+                            your mobile, desktop, and watch environments without latency.
+                        </p>
+                    </div>
+
+                    <!-- Sync Checklist Features -->
+                    <div class="split-feature-list">
+                        <div class="split-feature-item">
+                            <div class="split-feature-icon">
+                                <i class="fa-solid fa-cloud-arrow-down"></i>
+                            </div>
+                            <div class="split-feature-copy">
+                                <h3 class="split-feature-title">Native CalDAV & ICS Subscription</h3>
+                                <p class="split-feature-desc">
+                                    Subscribe once via Apple Calendar, Google Calendar, or Outlook to receive live
+                                    automated schedule pushes and changes.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="split-feature-item">
+                            <div class="split-feature-icon">
+                                <i class="fa-solid fa-bell-ring"></i>
+                            </div>
+                            <div class="split-feature-copy">
+                                <h3 class="split-feature-title">Immediate Room Swap Pushes</h3>
+                                <p class="split-feature-desc">
+                                    Receive instant push notifications and SMS relays 15 minutes before any emergency
+                                    hall substitution takes effect.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="split-feature-item">
+                            <div class="split-feature-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div class="split-feature-copy">
+                                <h3 class="split-feature-title">Encrypted Student Passkeys</h3>
+                                <p class="split-feature-desc">
+                                    End-to-end tokenized credentials ensure only verified enrolled students can access
+                                    gated facility entry barcodes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Integration Actions -->
+                    <div class="split-actions-row">
+                        <a href="error.html" class="btn btn-split-primary">
+                            <i class="fa-solid fa-qrcode"></i>
+                            <span>Generate Passkey QR</span>
+                        </a>
+                        <a href="error.html" class="btn btn-split-secondary">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Export .ICS Feed</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Mobile Mockup / Live Feed Card -->
+                <div class="split-col-visual">
+                    <div class="split-mockup-card">
+
+                        <!-- Mockup Top Bar -->
+                        <div class="mockup-header-bar">
+                            <div class="mockup-badge">
+                                <span class="mockup-pulse-dot"></span>
+                                <span>Live Console Feed</span>
+                            </div>
+                            <span class="mockup-timestamp">Sync Status: Active (0.2s)</span>
+                        </div>
+
+                        <!-- Notification Toast Item 1 -->
+                        <div class="mockup-toast-card warning">
+                            <div class="toast-icon">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                            <div class="toast-content">
+                                <div class="toast-headline">
+                                    <span class="toast-tag">Hall Update</span>
+                                    <span class="toast-time">10 mins ago</span>
+                                </div>
+                                <h4 class="toast-title">CS-482 Room Relocation</h4>
+                                <p class="toast-text">
+                                    Moved from Turing Hall 402 to <strong>Euler Amphitheater</strong> due to keynote
+                                    hardware setup.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Notification Toast Item 2 -->
+                        <div class="mockup-toast-card success">
+                            <div class="toast-icon">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <div class="toast-content">
+                                <div class="toast-headline">
+                                    <span class="toast-tag">Lab Verified</span>
+                                    <span class="toast-time">32 mins ago</span>
+                                </div>
+                                <h4 class="toast-title">GPU Cluster Station Reserved</h4>
+                                <p class="toast-text">
+                                    Quantum Sandbox Station #16 provisioned with 8x RTX 6000 compute credits for today's
+                                    session.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Notification Toast Item 3 -->
+                        <div class="mockup-toast-card info">
+                            <div class="toast-icon">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                            </div>
+                            <div class="toast-content">
+                                <div class="toast-headline">
+                                    <span class="toast-tag">Advisory Confirmed</span>
+                                    <span class="toast-time">1 hour ago</span>
+                                </div>
+                                <h4 class="toast-title">1-on-1 Consultation Booked</h4>
+                                <p class="toast-text">
+                                    Scheduled with <strong>Dr. Elena Rostova</strong> for Thursday at 11:30 AM
+                                    (In-person &bull; Rm 412).
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Mockup Footnote Strip -->
+                        <div class="mockup-bottom-meta">
+                            <div class="mockup-sync-indicator">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>256-Bit TLS Direct Sync Enabled</span>
+                            </div>
+                            <span class="mockup-device-count">3 Devices Paired</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="schedule-accordion-section" id="schedule-faq">
+        <div class="container">
+
+            <!-- Section Header adhering to H2 #0f172a and kicker #312e81 specifications -->
+            <div class="accordion-section-header">
+                <span class="locations-kicker">
+                    <i class="fa-solid fa-circle-question"></i> Registration Protocols & FAQs
+                </span>
+                <h2 class="locations-title">
+                    Schedule Conflict Resolutions & Policies
+                </h2>
+                <p class="locations-subtitle">
+                    Official university regulations regarding overlapping lecture blocks, emergency room reallocations,
+                    add/drop deadlines, and audit waivers.
+                </p>
+            </div>
+
+            <!-- Accordion Deck -->
+            <div class="accordion-deck" id="scheduleAccordionDeck">
+
+                <!-- Accordion Item 1 (Open by Default) -->
+                <article class="accordion-item active">
+                    <button type="button" class="accordion-trigger" aria-expanded="true">
+                        <div class="trigger-left">
+                            <span class="accordion-index">01</span>
+                            <span class="accordion-question">What is the procedure if two compulsory lecture slots
+                                overlap?</span>
+                        </div>
+                        <span class="accordion-icon-box">
+                            <i class="fa-solid fa-plus"></i>
+                        </span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="content-body">
+                            <p>
+                                The university timetable matrix engine automatically flags course overlap conflicts
+                                during enrollment. If two required core curriculum modules clash, you may file an
+                                <strong>Asynchronous Audit Petition</strong> through the Dean’s portal if one faculty
+                                member authorizes live stream or recorded lecture attendance.
+                            </p>
+                            <div class="accordion-meta-box">
+                                <span class="meta-item"><i class="fa-solid fa-clock"></i> Approval Window: Within 5
+                                    Business Days</span>
+                                <span class="meta-item"><i class="fa-solid fa-stamp"></i> Requires: Department Chair
+                                    Signature</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Accordion Item 2 -->
+                <article class="accordion-item">
+                    <button type="button" class="accordion-trigger" aria-expanded="false">
+                        <div class="trigger-left">
+                            <span class="accordion-index">02</span>
+                            <span class="accordion-question">How quickly do emergency room swaps reflect in third-party
+                                calendar apps?</span>
+                        </div>
+                        <span class="accordion-icon-box">
+                            <i class="fa-solid fa-plus"></i>
+                        </span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="content-body">
+                            <p>
+                                CalDAV and Webcal subscription pushes are executed with zero server cache delay. Native
+                                device refresh frequencies depend on your client (Apple Calendar syncs every 15 minutes;
+                                Google Calendar checks every 2 to 4 hours). Emergency venue updates also deploy instant
+                                SMS and push notifications to all enrolled students.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Accordion Item 3 -->
+                <article class="accordion-item">
+                    <button type="button" class="accordion-trigger" aria-expanded="false">
+                        <div class="trigger-left">
+                            <span class="accordion-index">03</span>
+                            <span class="accordion-question">What are the regulations for booking GPU compute sandbox
+                                workstations?</span>
+                        </div>
+                        <span class="accordion-icon-box">
+                            <i class="fa-solid fa-plus"></i>
+                        </span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="content-body">
+                            <p>
+                                Access to Quantum Lab B-12 and high-performance server clusters requires an active
+                                passkey token linked to an enrolled advanced laboratory course (such as CS-482 or
+                                CS-401). Workstations can be reserved up to 72 hours in advance in blocks of up to 4
+                                continuous hours.
+                            </p>
+                            <div class="accordion-meta-box">
+                                <span class="meta-item"><i class="fa-solid fa-id-card"></i> NFC Card Entry:
+                                    Enabled</span>
+                                <span class="meta-item"><i class="fa-solid fa-server"></i> Priority: Thesis & Research
+                                    Teams</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Accordion Item 4 -->
+                <article class="accordion-item">
+                    <button type="button" class="accordion-trigger" aria-expanded="false">
+                        <div class="trigger-left">
+                            <span class="accordion-index">04</span>
+                            <span class="accordion-question">When is the final cutoff date to submit schedule
+                                adjustments without transcript penalty?</span>
+                        </div>
+                        <span class="accordion-icon-box">
+                            <i class="fa-solid fa-plus"></i>
+                        </span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="content-body">
+                            <p>
+                                The standard Add/Drop grace period ends at 11:59 PM on the second Friday of the
+                                semester. Changes logged prior to this timestamp will not reflect as withdrawals on your
+                                permanent transcript and 100% of applicable laboratory facility fees will be credited
+                                back.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="schedule-final-cta-section" id="schedule-final-cta">
+        <div class="container">
+            <div class="final-cta-card">
+
+                <!-- Ambient Lighting & Precision Grid Geometry -->
+                <div class="final-cta-glow-spot"></div>
+                <div class="final-cta-grid-pattern" aria-hidden="true"></div>
+
+                <div class="final-cta-content-wrapper">
+
+                    <!-- Kicker Badge adhering to high-contrast dark surface rules -->
+                    <span class="final-cta-kicker">
+                        <i class="fa-solid fa-lock-check"></i> Enrollment Locking Phase
+                    </span>
+
+                    <!-- Section Title (H2 with text-main fallback) -->
+                    <h2 class="final-cta-title">
+                        Ready to Finalize & Synchronize Your Semester Schedule?
+                    </h2>
+
+                    <!-- Narrative Subtitle -->
+                    <p class="final-cta-subtitle">
+                        Confirm your registered lecture tracks, lock in reserved compute lab terminals, and transmit
+                        authenticated calendar tokens to all personal devices before the Add/Drop window concludes.
+                    </p>
+
+                    <!-- Primary Dual CTA Button Actions -->
+                    <div class="final-cta-action-group">
+                        <a href="error.html" class="btn btn-final-primary">
+                            <i class="fa-solid fa-calendar-circle-check"></i>
+                            <span>Confirm & Lock Timetable</span>
+                        </a>
+                        <a href="contact.html" class="btn btn-final-outline">
+                            <i class="fa-solid fa-headset"></i>
+                            <span>Petition Registrar Desk</span>
+                        </a>
+                    </div>
+
+                    <!-- System Audit Trust Bar -->
+                    <div class="final-cta-audit-matrix">
+                        <div class="audit-matrix-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Zero Schedule Collisions Flagged</span>
+                        </div>
+                        <div class="audit-matrix-divider"></div>
+                        <div class="audit-matrix-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Dean’s Office E-Signature Ready</span>
+                        </div>
+                        <div class="audit-matrix-divider"></div>
+                        <div class="audit-matrix-item">
+                            <i class="fa-solid fa-bolt-lightning"></i>
+                            <span>Encrypted Webcal Push Live</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <footer class="portal-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <img src="./assets/logo 1.webp" alt="logo" height="60px" width="150px">
+                    </a>
+                    <p>Higher education student management and interactive academic platform delivering unified digital
+                        campus services.</p>
+                    <div class="footer-socials">
+                        <a href="error.html" class="social-link" aria-label="Twitter"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="error.html" class="social-link" aria-label="LinkedIn"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="error.html" class="social-link" aria-label="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="error.html" class="social-link" aria-label="Discord"><i
+                                class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link"><i class="fa-solid fa-angle-right"></i>
+                                Home</a></li>
+                        <li><a href="courses.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> My
+                                Courses</a></li>
+                        <li><a href="grades.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Grades</a>
+                        </li>
+                        <li><a href="schedule.html" class="footer-link"><i class="fa-solid fa-angle-right"></i>
+                                Schedule</a></li>
+                        <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angle-right"></i>
+                                Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Account</h4>
+                    <ul class="footer-links">
+                        <li><a href="auth.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Sign In</a>
+                        </li>
+                        <li><a href="auth.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Portal
+                                Registration</a></li>
+                        <li><a href="auth.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Password
+                                Reset</a></li>
+                        <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> IT Help
+                                Desk</a></li>
+                    </ul>
+                </div>
+
+                <div class="newsletter-box">
+                    <h4 class="footer-heading">Campus Bulletins</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem;">Subscribe for priority alerts,
+                        examination notices, and term deadlines.</p>
+                    <form id="footerNewsletterForm" class="newsletter-input-group" novalidate>
+                        <input type="email" id="footerNewsletterEmail" class="form-input"
+                            placeholder="student@university.edu" required />
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduPortal Systems Inc. All rights reserved.</p>
+                <ul class="footer-legal-links">
+                    <li><a href="error.html">Privacy Policy</a></li>
+                    <li><a href="error.html">Terms of Use</a></li>
+                    <li><a href="error.html">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="schedule.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+
+</body>
+
+</html>

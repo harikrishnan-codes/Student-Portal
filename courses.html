@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="icon" href="./assets/logo.webp" />
+    <link rel="stylesheet" href="courses.css" />
+    <link rel="stylesheet" href="root.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header class="portal-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo" aria-label="Student Portal Home">
+                <img src="./assets/logo 1.webp" alt="logo" height="60px" width="150px">
+            </a>
+
+            <nav aria-label="Main Navigation">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+                    </li>
+                    <li><a href="courses.html" class="nav-link"><i class="fa-solid fa-book-open-reader"></i> My
+                            Courses</a></li>
+                    <li><a href="grades.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Grades</a></li>
+                    <li><a href="schedule.html" class="nav-link"><i class="fa-solid fa-calendar-days"></i> Schedule</a>
+                    </li>
+                    <li><a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope-open-text"></i>
+                            Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="auth.html" class="btn btn-secondary"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign
+                    In</a>
+                <a href="auth.html" class="btn btn-primary"><i class="fa-solid fa-user-shield"></i> Portal Access</a>
+            </div>
+
+            <button type="button" class="hamburger-toggle" id="hamburgerBtn" aria-label="Open navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+        <div class="drawer-header">
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 1.webp" alt="logo" height="60px" width="150px">
+            </a>
+            <button type="button" class="drawer-close-btn" id="closeDrawerBtn" aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <ul class="drawer-nav-menu">
+            <li><a href="index.html" class="drawer-nav-link"><i class="fa-solid fa-table-columns"></i> Home</a>
+            </li>
+            <li><a href="courses.html" class="drawer-nav-link"><i class="fa-solid fa-book-open-reader"></i> My
+                    Courses</a></li>
+            <li><a href="grades.html" class="drawer-nav-link"><i class="fa-solid fa-chart-line"></i> Grades</a></li>
+            <li><a href="schedule.html" class="drawer-nav-link"><i class="fa-solid fa-calendar-days"></i> Schedule</a>
+            </li>
+            <li><a href="contact.html" class="drawer-nav-link"><i class="fa-solid fa-envelope-open-text"></i>
+                    Contact</a></li>
+        </ul>
+
+        <div class="drawer-footer">
+            <a href="auth.html" class="btn btn-secondary" style="width: 100%;"><i
+                    class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</a>
+            <a href="auth.html" class="btn btn-primary" style="width: 100%;"><i class="fa-solid fa-user-shield"></i>
+                Portal Access</a>
+        </div>
+    </aside>
+
+
+
+
+
+
+    <section class="courses-hero-section" id="courses-parallax-hero">
+        <div class="courses-parallax-bg"
+            style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1920&q=80');">
+            <div class="courses-hero-overlay"></div>
+        </div>
+
+        <div class="container courses-hero-container">
+            <div class="courses-hero-content">
+                <div class="courses-hero-badge">
+                    <span class="badge-pulse-dot"></span>
+                    <span>Semester Curriculum &bull; 2026/27</span>
+                </div>
+
+                <h1 class="courses-hero-title">
+                    Explore Your Enrolled & Elective Modules
+                </h1>
+
+                <p class="courses-hero-subtitle">
+                    Access interactive video lectures, track weekly problem sets, inspect verified syllabi, and simulate
+                    final credit impacts in one centralized workspace.
+                </p>
+
+                <form id="courseSearchForm" class="courses-search-bar" novalidate>
+                    <div class="search-input-wrap">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="courseSearchInput" class="course-search-field"
+                            placeholder="Search by course code, title, or instructor (e.g. CS-402, AI)..." required />
+                    </div>
+                    <button type="submit" class="btn btn-primary courses-search-btn">
+                        <span>Search</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+                <span id="courseSearchError" class="course-search-error-msg"></span>
+
+                <div class="courses-stats-strip">
+                    <div class="course-stat-pill">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                        <div class="stat-meta">
+                            <span class="stat-number">6 Active</span>
+                            <span class="stat-caption">Enrolled Modules</span>
+                        </div>
+                    </div>
+
+                    <div class="course-stat-pill">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                        <div class="stat-meta">
+                            <span class="stat-number">18 Credits</span>
+                            <span class="stat-caption">Total Semester Load</span>
+                        </div>
+                    </div>
+
+                    <div class="course-stat-pill">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <div class="stat-meta">
+                            <span class="stat-number">3.88 GPA</span>
+                            <span class="stat-caption">Cumulative Standing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="courses-split-section" id="courses-split-section">
+        <div class="container">
+            <div class="courses-split-wrapper">
+
+                <!-- Visual Column: Interactive Virtual IDE Card -->
+                <div class="courses-split-visual-col">
+                    <div class="courses-ide-card">
+                        <div class="courses-ide-header">
+                            <div class="courses-ide-dots">
+                                <span class="dot close"></span>
+                                <span class="dot min"></span>
+                                <span class="dot expand"></span>
+                            </div>
+                            <div class="courses-ide-tab">
+                                <i class="fa-brands fa-python"></i>
+                                <span>neural_pipeline.py</span>
+                            </div>
+                            <span class="courses-ide-status"><i class="fa-solid fa-circle-check"></i> Connected</span>
+                        </div>
+
+                        <div class="courses-ide-code">
+                            <pre><code><span class="token-keyword">import</span> torch
+<span class="token-keyword">import</span> torch.nn <span class="token-keyword">as</span> nn
+
+<span class="token-comment"># EduPortal Distributed Cluster 2026/27</span>
+<span class="token-keyword">class</span> <span class="token-class">NeuralModel</span>(nn.Module):
+    <span class="token-keyword">def</span> <span class="token-function">__init__</span>(self, dims=512):
+        super().<span class="token-function">__init__</span>()
+        self.encoder = nn.TransformerEncoder(dims)
+
+    <span class="token-keyword">def</span> <span class="token-function">forward</span>(self, tensor_x):
+        <span class="token-keyword">return</span> self.encoder(tensor_x)
+
+<span class="token-comment"># Synchronizing telemetry with student cloud node...</span>
+tensor_input = torch.randn(32, 128, 512)
+output_logits = NeuralModel()(tensor_input)</code></pre>
+                        </div>
+
+                        <div class="courses-ide-footer">
+                            <div class="courses-terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-text">Allocated: 2x NVIDIA A100 (80GB) &bull; Latency: 4ms</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="courses-floating-glass-pill top-right">
+                        <div class="pill-glow-icon">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <div class="pill-meta-wrap">
+                            <span class="pill-title">Live Sync</span>
+                            <span class="pill-desc">Direct Campus Cluster</span>
+                        </div>
+                    </div>
+
+                    <div class="courses-floating-glass-pill bottom-left">
+                        <div class="pill-glow-icon green">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div class="pill-meta-wrap">
+                            <span class="pill-title">Zero Config</span>
+                            <span class="pill-desc">Browser Sandbox Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Column: Academic Advantages & Accordion Highlights -->
+                <div class="courses-split-content-col">
+                    <span class="courses-split-badge">
+                        <i class="fa-solid fa-terminal"></i> Compute & Curriculum
+                    </span>
+                    <h2 class="courses-split-title">
+                        Learn With Industry-Standard Sandboxes Built Directly In
+                    </h2>
+                    <p class="courses-split-desc">
+                        Stop struggling with complex local configurations and dependency mismatches. Every enrolled
+                        syllabus pairs seamlessly with isolated cloud compute containers accessible from any browser.
+                    </p>
+
+                    <div class="courses-feature-list">
+                        <div class="courses-feature-item">
+                            <div class="feature-icon-box">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <div class="feature-text-block">
+                                <h3 class="feature-title">Instant GPU & Compiler Allocation</h3>
+                                <p class="feature-desc">Immediate access to dedicated Linux runtimes with pre-installed
+                                    academic ML frameworks, databases, and scientific libraries.</p>
+                            </div>
+                        </div>
+
+                        <div class="courses-feature-item">
+                            <div class="feature-icon-box">
+                                <i class="fa-solid fa-code-pull-request"></i>
+                            </div>
+                            <div class="feature-text-block">
+                                <h3 class="feature-title">Automated Unit Testing & Continuous Grading</h3>
+                                <p class="feature-desc">Receive line-by-line feedback on algorithmic complexity,
+                                    execution speed, and edge test case coverage in seconds.</p>
+                            </div>
+                        </div>
+
+                        <div class="courses-feature-item">
+                            <div class="feature-icon-box">
+                                <i class="fa-solid fa-users-viewfinder"></i>
+                            </div>
+                            <div class="feature-text-block">
+                                <h3 class="feature-title">Collaborative Pair-Programming</h3>
+                                <p class="feature-desc">Work synchronously with cohort peers or invite course professors
+                                    directly into your sandbox workspace for office-hour debugging.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="courses-split-action-wrap">
+                        <a href="error.html" class="btn btn-primary courses-split-btn">
+                            <span>Launch Sandbox Demo</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="course-catalog-section" id="course-catalog-section">
+        <div class="container">
+            <div class="catalog-header-bar">
+                <div class="catalog-heading">
+                    <span class="catalog-badge">
+                        <i class="fa-solid fa-graduation-cap"></i> Academic Directory
+                    </span>
+                    <h2 class="catalog-title">Active Degree Modules</h2>
+                </div>
+
+                <div class="catalog-filter-tabs">
+                    <button type="button" class="catalog-tab-btn active" data-filter="all">All Modules</button>
+                    <button type="button" class="catalog-tab-btn" data-filter="cs">Computer Science</button>
+                    <button type="button" class="catalog-tab-btn" data-filter="ai">Artificial Intelligence</button>
+                    <button type="button" class="catalog-tab-btn" data-filter="data">Data Analytics</button>
+                </div>
+            </div>
+
+            <div class="course-cards-grid">
+                <div class="course-card" data-category="ai">
+                    <div class="course-thumbnail-wrap">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+                            alt="Neural Networks" class="course-card-img" />
+                        <span class="course-level-tag">Advanced</span>
+                        <span class="course-credits-badge"><i class="fa-solid fa-bolt"></i> 4 Credits</span>
+                    </div>
+                    <div class="course-card-content">
+                        <div class="course-meta-row">
+                            <span class="course-dept"><i class="fa-solid fa-brain"></i> CS-482</span>
+                            <span class="course-rating"><i class="fa-solid fa-star"></i> 4.9 (128)</span>
+                        </div>
+                        <h3 class="course-card-title">Deep Learning & Autonomous Robotics</h3>
+                        <p class="course-card-desc">Comprehensive exploration into convolutional architectures,
+                            reinforcement learning models, and CUDA optimizations.</p>
+                        <div class="course-instructor-row">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80"
+                                alt="Instructor" class="instructor-avatar" />
+                            <div class="instructor-info">
+                                <span class="instructor-name">Dr. Elena Rostova</span>
+                                <span class="instructor-title">Lead AI Faculty</span>
+                            </div>
+                        </div>
+                        <div class="course-card-footer">
+                            <div class="progress-wrap">
+                                <div class="progress-labels">
+                                    <span>Cohort Capacity</span>
+                                    <span>88% Full</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 88%;"></div>
+                                </div>
+                            </div>
+                            <a href="error.html" class="btn btn-primary course-enroll-btn">
+                                <span>View Module</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-category="cs">
+                    <div class="course-thumbnail-wrap">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+                            alt="Distributed Systems" class="course-card-img" />
+                        <span class="course-level-tag">Intermediate</span>
+                        <span class="course-credits-badge"><i class="fa-solid fa-bolt"></i> 4 Credits</span>
+                    </div>
+                    <div class="course-card-content">
+                        <div class="course-meta-row">
+                            <span class="course-dept"><i class="fa-solid fa-network-wired"></i> CS-305</span>
+                            <span class="course-rating"><i class="fa-solid fa-star"></i> 4.8 (94)</span>
+                        </div>
+                        <h3 class="course-card-title">High-Performance Distributed Systems</h3>
+                        <p class="course-card-desc">Consensus algorithms, microservices orchestration, gRPC conduits,
+                            and Byzantine fault-tolerant infrastructures.</p>
+                        <div class="course-instructor-row">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80"
+                                alt="Instructor" class="instructor-avatar" />
+                            <div class="instructor-info">
+                                <span class="instructor-name">Prof. Marcus Vance</span>
+                                <span class="instructor-title">Systems Engineering</span>
+                            </div>
+                        </div>
+                        <div class="course-card-footer">
+                            <div class="progress-wrap">
+                                <div class="progress-labels">
+                                    <span>Cohort Capacity</span>
+                                    <span>65% Full</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 65%;"></div>
+                                </div>
+                            </div>
+                            <a href="error.html" class="btn btn-primary course-enroll-btn">
+                                <span>View Module</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card" data-category="data">
+                    <div class="course-thumbnail-wrap">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                            alt="Data Analytics" class="course-card-img" />
+                        <span class="course-level-tag">Core</span>
+                        <span class="course-credits-badge"><i class="fa-solid fa-bolt"></i> 3 Credits</span>
+                    </div>
+                    <div class="course-card-content">
+                        <div class="course-meta-row">
+                            <span class="course-dept"><i class="fa-solid fa-chart-pie"></i> DA-210</span>
+                            <span class="course-rating"><i class="fa-solid fa-star"></i> 4.95 (210)</span>
+                        </div>
+                        <h3 class="course-card-title">Statistical Computing & Algorithmic Mining</h3>
+                        <p class="course-card-desc">Modern exploratory data pipelines, bayesian inference methods,
+                            regression forecasting, and large-scale visualization.</p>
+                        <div class="course-instructor-row">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=80&q=80"
+                                alt="Instructor" class="instructor-avatar" />
+                            <div class="instructor-info">
+                                <span class="instructor-name">Dr. Sophia Zhang</span>
+                                <span class="instructor-title">Chair of Applied Mathematics</span>
+                            </div>
+                        </div>
+                        <div class="course-card-footer">
+                            <div class="progress-wrap">
+                                <div class="progress-labels">
+                                    <span>Cohort Capacity</span>
+                                    <span>94% Full</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 94%;"></div>
+                                </div>
+                            </div>
+                            <a href="error.html" class="btn btn-primary course-enroll-btn">
+                                <span>View Module</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="comparison-section" id="courses-comparison-section">
+        <div class="container">
+            <div class="comparison-header">
+                <span class="comparison-badge">
+                    <i class="fa-solid fa-code-compare"></i> Curriculum Evolution
+                </span>
+                <h2 class="comparison-title">Interactive Lab vs. Traditional Lecture</h2>
+                <p class="comparison-subtitle">
+                    Slide to experience how real-time cloud virtualization transforms theoretical learning into hands-on
+                    technical mastery.
+                </p>
+            </div>
+
+            <div class="comparison-slider-wrapper">
+                <div class="comparison-container" id="comparisonContainer">
+
+                    <div class="comparison-image-layer image-after">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80"
+                            alt="Interactive Collaborative Cloud Lab" />
+                        <span class="comparison-floating-tag tag-after">
+                            <i class="fa-solid fa-laptop-code"></i> Modern Cloud Sandbox
+                        </span>
+                    </div>
+
+                    <div class="comparison-image-layer image-before" id="comparisonBeforeLayer">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1600&q=80"
+                            alt="Traditional Lecture Hall" />
+                        <span class="comparison-floating-tag tag-before">
+                            <i class="fa-solid fa-chalkboard-user"></i> Classic Classroom
+                        </span>
+                    </div>
+
+                    <div class="comparison-handle" id="comparisonHandle">
+                        <div class="handle-line"></div>
+                        <div class="handle-circle">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+                        <div class="handle-line"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="feedback-section" id="courses-feedback-section">
+        <div class="container">
+            <div class="feedback-header">
+                <span class="feedback-badge">
+                    <i class="fa-solid fa-quote-left"></i> Scholar Perspectives
+                </span>
+                <h2 class="feedback-title">Endorsed by Top Academics & Alumni</h2>
+                <p class="feedback-subtitle">
+                    Discover how our integrated coursework, virtual sandboxes, and dedicated mentorship elevate
+                    post-graduate trajectories.
+                </p>
+            </div>
+
+            <div class="feedback-cards-grid">
+                <div class="feedback-card">
+                    <div class="feedback-card-glow"></div>
+                    <div class="feedback-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="feedback-text">
+                        "The automated code grading pipelines and direct sandbox runners made machine learning modules
+                        straightforward. I saved dozens of hours that usually go into configuring environments."
+                    </p>
+                    <div class="feedback-author-row">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
+                            alt="Elena Chen" class="author-avatar" />
+                        <div class="author-meta">
+                            <h3 class="author-name">Elena Chen</h3>
+                            <span class="author-role">M.S. Artificial Intelligence &bull; Class of '26</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card featured">
+                    <div class="feedback-card-glow"></div>
+                    <div class="feedback-featured-pill">
+                        <i class="fa-solid fa-award"></i> Highest Citation Impact
+                    </div>
+                    <div class="feedback-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="feedback-text">
+                        "Having real-time degree audits directly integrated into course selection eliminated
+                        prerequisite friction completely. Our department's research engagement surged across all
+                        semesters."
+                    </p>
+                    <div class="feedback-author-row">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
+                            alt="Dr. Arthur Sterling" class="author-avatar" />
+                        <div class="author-meta">
+                            <h3 class="author-name">Dr. Arthur Sterling</h3>
+                            <span class="author-role">Chair of Systems Architecture</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card">
+                    <div class="feedback-card-glow"></div>
+                    <div class="feedback-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="feedback-text">
+                        "The peer advisory booking and encrypted academic portfolios simplified my internship
+                        applications. Corporate recruiters verified my degree metrics in just one click."
+                    </p>
+                    <div class="feedback-author-row">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80"
+                            alt="Devon Brooks" class="author-avatar" />
+                        <div class="author-meta">
+                            <h3 class="author-name">Devon Brooks</h3>
+                            <span class="author-role">Data Engineering Fellow</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="portal-cta-showcase-section" id="portal-cta-showcase">
+        <div class="container">
+            <div class="cta-showcase-card">
+                <div class="cta-mesh-glow"></div>
+                <div class="cta-mesh-circle"></div>
+
+                <div class="cta-showcase-content">
+                    <span class="cta-showcase-badge">
+                        <i class="fa-solid fa-graduation-cap"></i> Admission & Semester Enrollment
+                    </span>
+
+                    <h2 class="cta-showcase-title">
+                        Ready to Elevate Your Academic Potential?
+                    </h2>
+
+                    <p class="cta-showcase-desc">
+                        Join thousands of university scholars leveraging cloud laboratory access, verified transcript
+                        auditing, and faculty advisory deck in one cohesive portal.
+                    </p>
+
+                    <div class="cta-showcase-actions">
+                        <a href="contact.html" class="btn btn-cta-primary">
+                            <span>Apply for Admission</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="courses.html" class="btn btn-cta-glass">
+                            <i class="fa-solid fa-compass"></i>
+                            <span>Browse All Modules</span>
+                        </a>
+                    </div>
+
+                    <div class="cta-trust-bar">
+                        <div class="cta-trust-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Encrypted Records</span>
+                        </div>
+                        <span class="cta-trust-dot"></span>
+                        <div class="cta-trust-item">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Instant Cloud Sandbox</span>
+                        </div>
+                        <span class="cta-trust-dot"></span>
+                        <div class="cta-trust-item">
+                            <i class="fa-solid fa-user-check"></i>
+                            <span>Verified Degree Audit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <footer class="portal-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <img src="./assets/logo 1.webp" alt="logo" height="60px" width="150px">
+                    </a>
+                    <p>Higher education student management and interactive academic platform delivering unified digital
+                        campus services.</p>
+                    <div class="footer-socials">
+                        <a href="error.html" class="social-link" aria-label="Twitter"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="error.html" class="social-link" aria-label="LinkedIn"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="error.html" class="social-link" aria-label="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="error.html" class="social-link" aria-label="Discord"><i
+                                class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link"><i class="fa-solid fa-angle-right"></i>
+                                Home</a></li>
+                        <li><a href="courses.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> My
+                                Courses</a></li>
+                        <li><a href="grades.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Grades</a>
+                        </li>
+                        <li><a href="schedule.html" class="footer-link"><i class="fa-solid fa-angle-right"></i>
+                                Schedule</a></li>
+                        <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angle-right"></i>
+                                Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Account</h4>
+                    <ul class="footer-links">
+                        <li><a href="auth.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Sign In</a>
+                        </li>
+                        <li><a href="auth.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Portal
+                                Registration</a></li>
+                        <li><a href="auth.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Password
+                                Reset</a></li>
+                        <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> IT Help
+                                Desk</a></li>
+                    </ul>
+                </div>
+
+                <div class="newsletter-box">
+                    <h4 class="footer-heading">Campus Bulletins</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem;">Subscribe for priority alerts,
+                        examination notices, and term deadlines.</p>
+                    <form id="footerNewsletterForm" class="newsletter-input-group" novalidate>
+                        <input type="email" id="footerNewsletterEmail" class="form-input"
+                            placeholder="student@university.edu" required />
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduPortal Systems Inc. All rights reserved.</p>
+                <ul class="footer-legal-links">
+                    <li><a href="error.html">Privacy Policy</a></li>
+                    <li><a href="error.html">Terms of Use</a></li>
+                    <li><a href="error.html">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="courses.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+</body>
+
+</html>

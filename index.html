@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="icon" href="./assets/logo.webp" />
+
+    <link rel="stylesheet" href="root.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header class="portal-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo" aria-label="Student Portal Home">
+                <img src="./assets/logo 1.webp" alt="logo" height="60px" width="150px">
+            </a>
+
+            <nav aria-label="Main Navigation">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+                    </li>
+                    <li><a href="courses.html" class="nav-link"><i class="fa-solid fa-book-open-reader"></i> My
+                            Courses</a></li>
+                    <li><a href="grades.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Grades</a></li>
+                    <li><a href="schedule.html" class="nav-link"><i class="fa-solid fa-calendar-days"></i> Schedule</a>
+                    </li>
+                    <li><a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope-open-text"></i>
+                            Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="auth.html" class="btn btn-secondary"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign
+                    In</a>
+                <a href="auth.html" class="btn btn-primary"><i class="fa-solid fa-user-shield"></i> Portal Access</a>
+            </div>
+
+            <button type="button" class="hamburger-toggle" id="hamburgerBtn" aria-label="Open navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+        <div class="drawer-header">
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 1.webp" alt="logo" height="60px" width="150px">
+            </a>
+            <button type="button" class="drawer-close-btn" id="closeDrawerBtn" aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <ul class="drawer-nav-menu">
+            <li><a href="index.html" class="drawer-nav-link"><i class="fa-solid fa-table-columns"></i> Home</a>
+            </li>
+            <li><a href="courses.html" class="drawer-nav-link"><i class="fa-solid fa-book-open-reader"></i> My
+                    Courses</a></li>
+            <li><a href="grades.html" class="drawer-nav-link"><i class="fa-solid fa-chart-line"></i> Grades</a></li>
+            <li><a href="schedule.html" class="drawer-nav-link"><i class="fa-solid fa-calendar-days"></i> Schedule</a>
+            </li>
+            <li><a href="contact.html" class="drawer-nav-link"><i class="fa-solid fa-envelope-open-text"></i>
+                    Contact</a></li>
+        </ul>
+
+        <div class="drawer-footer">
+            <a href="auth.html" class="btn btn-secondary" style="width: 100%;"><i
+                    class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</a>
+            <a href="auth.html" class="btn btn-primary" style="width: 100%;"><i class="fa-solid fa-user-shield"></i>
+                Portal Access</a>
+        </div>
+    </aside>
+
+
+
+
+
+
+    <section class="hero-section">
+        <div class="hero-fullwidth-wrapper">
+
+            <div class="hero-slider-backdrop">
+                <div class="hero-slide active"
+                    style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80');">
+                </div>
+                <div class="hero-slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80');">
+                </div>
+                <div class="hero-slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80');">
+                </div>
+            </div>
+
+            <div class="container hero-content-container">
+                <div class="hero-overlay-card">
+                    <span class="hero-kicker">
+                        <i class="fa-solid fa-graduation-cap"></i> Academic Excellence &bull; 2026/27
+                    </span>
+                    <h1 class="hero-title">Empowering Your Higher Education Journey</h1>
+                    <p class="hero-description">
+                        Streamline your semester workload, monitor credit progress, and unlock university research
+                        resources all within one intuitive campus portal.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="courses.html" class="btn hero-btn-accent">
+                            <i class="fa-solid fa-book-open"></i> Explore Courses
+                        </a>
+                        <a href="schedule.html" class="btn hero-btn-outline">
+                            <i class="fa-solid fa-calendar-check"></i> View Timetable
+                        </a>
+                    </div>
+
+                    <ul class="hero-perks-list">
+                        <li class="perk-item">
+                            <span class="perk-icon"><i class="fa-solid fa-check"></i></span>
+                            <span>Accredited</span>
+                        </li>
+                        <li class="perk-item">
+                            <span class="perk-icon"><i class="fa-solid fa-check"></i></span>
+                            <span>24/7 Access</span>
+                        </li>
+                        <li class="perk-item">
+                            <span class="perk-icon"><i class="fa-solid fa-check"></i></span>
+                            <span>Self-Paced</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="hero-rating-badge">
+                    <div class="rating-header">
+                        <i class="fa-solid fa-star rating-star"></i>
+                        <span class="rating-score">4.9</span>
+                        <i class="fa-brands fa-google rating-brand"></i>
+                    </div>
+                    <span class="rating-count">1,250+ Enrolled</span>
+                    <div class="avatar-stack">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80"
+                            alt="Student" class="avatar-img" />
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80"
+                            alt="Student" class="avatar-img" />
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80"
+                            alt="Student" class="avatar-img" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="split-section" id="portal-split-section">
+        <div class="container">
+            <div class="split-wrapper">
+
+                <div class="split-col-content">
+                    <span class="split-tag">
+                        <i class="fa-solid fa-graduation-cap"></i> Smarter Campus Life
+                    </span>
+                    <h2 class="split-title">All Your Academic Tools, Elegantly Unified</h2>
+                    <p class="split-description">
+                        Seamlessly manage your classes, connect with academic faculty, track GPA trajectory, and access
+                        digital libraries without the traditional university clutter.
+                    </p>
+
+                    <div class="split-cards-stack">
+                        <div class="split-feature-card">
+                            <div class="split-icon-badge">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <div class="split-card-text">
+                                <h3 class="split-card-title">Real-Time Syllabus Sync</h3>
+                                <p class="split-card-desc">Every lecture note, assignment milestone, and grading metric
+                                    updates synchronously with campus servers.</p>
+                            </div>
+                        </div>
+
+                        <div class="split-feature-card">
+                            <div class="split-icon-badge">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </div>
+                            <div class="split-card-text">
+                                <h3 class="split-card-title">Predictive GPA Calculator</h3>
+                                <p class="split-card-desc">Simulate potential semester grades and evaluate credit
+                                    standing with institutional degree audit tools.</p>
+                            </div>
+                        </div>
+
+                        <div class="split-feature-card">
+                            <div class="split-icon-badge">
+                                <i class="fa-solid fa-user-shield"></i>
+                            </div>
+                            <div class="split-card-text">
+                                <h3 class="split-card-title">Encrypted Student Records</h3>
+                                <p class="split-card-desc">State-of-the-art tokenized verification guarantees your
+                                    transcripts and financial bursaries remain secure.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="split-action">
+                        <a href="courses.html" class="btn btn-primary">
+                            <span>Explore All Features</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="split-col-visual">
+                    <div class="split-preview-frame">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80"
+                            alt="Student collaboration" class="split-main-image" />
+                        <div class="split-glow-orb"></div>
+
+                        <div class="split-floating-pill stat-top">
+                            <div class="pill-icon-box">
+                                <i class="fa-solid fa-bolt-lightning"></i>
+                            </div>
+                            <div class="pill-info">
+                                <span class="pill-number">99.4%</span>
+                                <span class="pill-label">Assignment On-Time Rate</span>
+                            </div>
+                        </div>
+
+                        <div class="split-floating-pill stat-bottom">
+                            <div class="pill-icon-box green">
+                                <i class="fa-solid fa-circle-check"></i>
+                            </div>
+                            <div class="pill-info">
+                                <span class="pill-number">12,400+</span>
+                                <span class="pill-label">Enrolled Student Cohort</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="overlap-section" id="portal-overlap-section">
+        <div class="container">
+            <div class="overlap-header">
+                <span class="overlap-badge">
+                    <i class="fa-solid fa-layer-group"></i> Academic Hub
+                </span>
+                <h2 class="overlap-title">Integrated Campus Core Services</h2>
+                <p class="overlap-subtitle">
+                    Everything required to accelerate your learning journey structured into interactive smart modules.
+                </p>
+            </div>
+
+            <div class="overlap-cards-wrapper">
+                <div class="overlap-card card-1">
+                    <div class="overlap-card-top">
+                        <div class="overlap-icon-box">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+                        <span class="overlap-card-num">01</span>
+                    </div>
+                    <h3 class="overlap-card-title">Digital Library & Archives</h3>
+                    <p class="overlap-card-desc">
+                        Instant institutional pass to 45,000+ IEEE journals, Springer publications, and downloadable
+                        recorded laboratory seminars.
+                    </p>
+                    <ul class="overlap-features-list">
+                        <li><i class="fa-solid fa-check"></i> Peer-reviewed databases</li>
+                        <li><i class="fa-solid fa-check"></i> Offline syllabus caching</li>
+                    </ul>
+                    <a href="courses.html" class="btn btn-secondary overlap-card-btn">Access Archives</a>
+                </div>
+
+                <div class="overlap-card card-2">
+                    <div class="overlap-card-top">
+                        <div class="overlap-icon-box accent">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <span class="overlap-card-num">02</span>
+                    </div>
+                    <h3 class="overlap-card-title">Cloud Code Sandbox</h3>
+                    <p class="overlap-card-desc">
+                        Run and debug algorithmic assignments directly inside browser compute containers without local
+                        environment configurations.
+                    </p>
+                    <ul class="overlap-features-list">
+                        <li><i class="fa-solid fa-check"></i> Python, C++, Rust runners</li>
+                        <li><i class="fa-solid fa-check"></i> Automated grading tests</li>
+                    </ul>
+                    <a href="courses.html" class="btn btn-secondary overlap-card-btn">Launch Sandbox</a>
+                </div>
+
+                <div class="overlap-card card-3">
+                    <div class="overlap-card-top">
+                        <div class="overlap-icon-box">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <span class="overlap-card-num">03</span>
+                    </div>
+                    <h3 class="overlap-card-title">Faculty Mentorship Deck</h3>
+                    <p class="overlap-card-desc">
+                        Book dedicated 1-on-1 virtual advisory sessions, coordinate thesis milestones, and obtain
+                        verifiable recommendation letters.
+                    </p>
+                    <ul class="overlap-features-list">
+                        <li><i class="fa-solid fa-check"></i> Instant calendar sync</li>
+                        <li><i class="fa-solid fa-check"></i> Direct advisor chat line</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary overlap-card-btn">Meet Advisors</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="why-us-section" id="portal-why-us-section">
+        <div class="container">
+            <div class="why-us-main-grid">
+
+                <div class="why-us-media-col">
+                    <div class="why-us-featured-frame">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+                            alt="Students engaged in collaborative research" class="why-us-featured-img" />
+                        <div class="why-us-media-badge">
+                            <i class="fa-solid fa-certificate"></i>
+                            <span>Tier-1 Research Accredited</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="why-us-info-col">
+                    <div class="why-us-tag-wrapper">
+                        <span class="why-us-kicker">
+                            <span class="kicker-dot"></span>
+                            Why Choose Us
+                            <span class="kicker-dot"></span>
+                        </span>
+                    </div>
+
+                    <h2 class="why-us-heading">
+                        Choose Us for Rigorous and Transformative Education.
+                    </h2>
+
+                    <div class="why-us-green-panel">
+                        <p class="why-us-panel-text">
+                            Experience absolute confidence with our fully accredited curriculum and dedicated faculty
+                            mentorship. We ensure every semester milestone is structured, verified, and career-aligned.
+                        </p>
+
+                        <a href="courses.html" class="btn why-us-action-btn">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>Explore Programs</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="why-us-cards-row">
+                <div class="why-us-perk-card">
+                    <div class="perk-card-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+                            alt="One-on-one mentorship" class="perk-card-img" />
+                        <div class="perk-card-overlay"></div>
+                    </div>
+                    <div class="perk-card-body">
+                        <h3 class="perk-card-title">Dedicated Faculty Mentors</h3>
+                        <p class="perk-card-description">Personalized advisory sessions guiding your research papers and
+                            degree credits.</p>
+                    </div>
+                </div>
+
+                <div class="why-us-perk-card">
+                    <div class="perk-card-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80"
+                            alt="Accredited degree evaluations" class="perk-card-img" />
+                        <div class="perk-card-overlay"></div>
+                    </div>
+                    <div class="perk-card-body">
+                        <h3 class="perk-card-title">Verified Degree Audits</h3>
+                        <p class="perk-card-description">Automated prerequisite tracking and transparent credit
+                            evaluations every term.</p>
+                    </div>
+                </div>
+
+                <div class="why-us-perk-card">
+                    <div class="perk-card-image-wrap">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80"
+                            alt="Advanced laboratory tools" class="perk-card-img" />
+                        <div class="perk-card-overlay"></div>
+                    </div>
+                    <div class="perk-card-body">
+                        <h3 class="perk-card-title">Modern Laboratory Access</h3>
+                        <p class="perk-card-description">High-density computing rigs, simulated biology suites, and
+                            fabrication labs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <section class="milestone-section" id="portal-milestone-section">
+        <div class="container">
+            <div class="milestone-header">
+                <span class="milestone-badge">
+                    <i class="fa-solid fa-graduation-cap"></i> Academic Roadmap
+                </span>
+                <h2 class="milestone-title">Your Journey Through The Semester</h2>
+                <p class="milestone-subtitle">
+                    Follow your real-time path from course enrollment to thesis submission with smart progress tracking.
+                </p>
+            </div>
+
+            <div class="milestone-timeline">
+                <div class="timeline-track">
+                    <div class="timeline-progress-fill" id="timelineProgressFill"></div>
+                </div>
+
+                <div class="milestone-item left">
+                    <div class="milestone-node">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <div class="milestone-card">
+                        <span class="milestone-step">Phase 01 &bull; Week 1</span>
+                        <h3 class="milestone-card-title">Course Registration & Validation</h3>
+                        <p class="milestone-card-text">
+                            Elective allocation, prerequisite verification, and instant syllabus synchronization with
+                            primary faculty databases.
+                        </p>
+                        <div class="milestone-card-footer">
+                            <span class="status-pill completed"><i class="fa-solid fa-circle-check"></i>
+                                Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="milestone-item right">
+                    <div class="milestone-node">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <div class="milestone-card">
+                        <span class="milestone-step">Phase 02 &bull; Weeks 2–6</span>
+                        <h3 class="milestone-card-title">Interactive Lecture Modules</h3>
+                        <p class="milestone-card-text">
+                            Access recorded laboratory demonstrations, automated code reviews, and weekly discussion
+                            board engagements.
+                        </p>
+                        <div class="milestone-card-footer">
+                            <span class="status-pill active"><i class="fa-solid fa-spinner fa-spin"></i> In
+                                Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="milestone-item left">
+                    <div class="milestone-node">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+                    <div class="milestone-card">
+                        <span class="milestone-step">Phase 03 &bull; Weeks 7–8</span>
+                        <h3 class="milestone-card-title">Midterm Performance Audit</h3>
+                        <p class="milestone-card-text">
+                            Institutional assessment review, cumulative grade predictions, and one-on-one academic
+                            mentor consultations.
+                        </p>
+                        <div class="milestone-card-footer">
+                            <span class="status-pill pending"><i class="fa-solid fa-clock"></i> Upcoming</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="milestone-item right">
+                    <div class="milestone-node">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div class="milestone-card">
+                        <span class="milestone-step">Phase 04 &bull; Weeks 12–14</span>
+                        <h3 class="milestone-card-title">Final Examination & Credits</h3>
+                        <p class="milestone-card-text">
+                            Proctored examination completion, official term transcript issuance, and degree progression
+                            archival.
+                        </p>
+                        <div class="milestone-card-footer">
+                            <span class="status-pill pending"><i class="fa-solid fa-lock"></i> Locked</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="mask-reveal-section" id="portal-mask-section">
+        <div class="container">
+            <div class="mask-reveal-header">
+                <span class="mask-badge">
+                    <i class="fa-solid fa-compass-drafting"></i> Modern Campus Life
+                </span>
+                <h2 class="mask-title">State-of-the-Art Learning Spaces</h2>
+                <p class="mask-subtitle">
+                    Explore innovative labs, research libraries, and collaborative auditoriums designed for your
+                    academic breakthrough.
+                </p>
+            </div>
+
+            <div class="mask-reveal-viewport">
+                <div class="mask-curtain-layer"></div>
+
+                <div class="mask-image-container">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80"
+                        alt="Modern University Campus Architecture" class="mask-zoom-img" />
+
+                    <div class="mask-floating-overlay">
+                        <div class="mask-caption-pill">
+                            <span class="pill-dot"></span>
+                            <span>Applied Robotics & Innovation Wing &bull; Block D</span>
+                        </div>
+
+                        <div class="mask-feature-badges">
+                            <div class="mask-mini-badge">
+                                <i class="fa-solid fa-microchip"></i>
+                                <span>High-Density Computing</span>
+                            </div>
+                            <div class="mask-mini-badge">
+                                <i class="fa-solid fa-wifi"></i>
+                                <span>Gigabit Wi-Fi 7 Coverage</span>
+                            </div>
+                            <div class="mask-mini-badge">
+                                <i class="fa-solid fa-leaf"></i>
+                                <span>Zero-Carbon Infrastructure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="accordion-section" id="portal-accordion-section">
+        <div class="container">
+            <div class="accordion-header">
+                <span class="accordion-badge">
+                    <i class="fa-solid fa-circle-question"></i> Academic Guidance
+                </span>
+                <h2 class="accordion-title">Frequently Addressed Inquiries</h2>
+                <p class="accordion-subtitle">
+                    Everything you need to understand regarding semester registration, credit transfers, and
+                    institutional portal access.
+                </p>
+            </div>
+
+            <div class="accordion-grid">
+                <div class="accordion-card active">
+                    <button type="button" class="accordion-trigger" aria-expanded="true">
+                        <div class="accordion-title-wrap">
+                            <span class="accordion-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                            <span class="accordion-question">How are cumulative GPA and semester credit standings
+                                calculated?</span>
+                        </div>
+                        <span class="accordion-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>
+                                Your cumulative GPA is determined through credit-weighted quality points recognized
+                                under institutional standards. All graded lecture courses and laboratory modules factor
+                                in immediately following formal faculty submission periods.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-card">
+                    <button type="button" class="accordion-trigger" aria-expanded="false">
+                        <div class="accordion-title-wrap">
+                            <span class="accordion-icon"><i class="fa-solid fa-calendar-check"></i></span>
+                            <span class="accordion-question">What is the deadline for late course additions or
+                                prerequisite drops?</span>
+                        </div>
+                        <span class="accordion-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>
+                                Students may add elective subjects or alter laboratory schedules within the initial two
+                                instructional weeks. Official course drops initiated before the mid-term audit do not
+                                reflect adversely upon your academic record.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-card">
+                    <button type="button" class="accordion-trigger" aria-expanded="false">
+                        <div class="accordion-title-wrap">
+                            <span class="accordion-icon"><i class="fa-solid fa-laptop-file"></i></span>
+                            <span class="accordion-question">How do I access proctored assignments and digital research
+                                papers?</span>
+                        </div>
+                        <span class="accordion-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>
+                                Digital library access, IEEE/JSTOR academic indices, and proctored examination modules
+                                authenticate automatically via university single sign-on credentials linked directly
+                                through this student portal dashboard.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-card">
+                    <button type="button" class="accordion-trigger" aria-expanded="false">
+                        <div class="accordion-title-wrap">
+                            <span class="accordion-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                            <span class="accordion-question">What steps are required if my account authentication
+                                credentials fail?</span>
+                        </div>
+                        <span class="accordion-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>
+                                Account security locks trigger automatically following multiple unsuccessful sign-in
+                                attempts. You can trigger biometric identity reverification or reach our round-the-clock
+                                IT helpdesk via the contact portal.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="banner-cta-section" id="portal-cta-section">
+        <div class="banner-cta-backdrop"
+            style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80');">
+            <div class="banner-cta-vignette"></div>
+        </div>
+
+        <div class="container banner-cta-container">
+            <div class="banner-cta-card">
+                <span class="banner-cta-badge">
+                    <i class="fa-solid fa-award"></i> Institutional Excellence
+                </span>
+
+                <h2 class="banner-cta-title">
+                    Shape Your Future with World-Class Academic Standards
+                </h2>
+
+                <p class="banner-cta-desc">
+                    Join over 12,000 students accessing advanced accredited degrees, state-of-the-art laboratory
+                    simulations, and global faculty networks.
+                </p>
+
+                <div class="banner-cta-actions">
+                    <a href="courses.html" class="btn btn-primary banner-primary-btn">
+                        <span>Apply for Admission</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary banner-secondary-btn">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>Book Virtual Tour</span>
+                    </a>
+                </div>
+
+                <div class="banner-stats-grid">
+                    <div class="banner-stat-box">
+                        <div class="banner-stat-number"><span class="counter-num" data-target="98">0</span>%</div>
+                        <div class="banner-stat-label">Graduate Placement</div>
+                    </div>
+                    <div class="banner-stat-box">
+                        <div class="banner-stat-number"><span class="counter-num" data-target="150">0</span>+</div>
+                        <div class="banner-stat-label">Accredited Programs</div>
+                    </div>
+                    <div class="banner-stat-box">
+                        <div class="banner-stat-number">$<span class="counter-num" data-target="24">0</span>M</div>
+                        <div class="banner-stat-label">Research Grants</div>
+                    </div>
+                    <div class="banner-stat-box">
+                        <div class="banner-stat-number"><span class="counter-num" data-target="45">0</span>k</div>
+                        <div class="banner-stat-label">Global Alumni</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <footer class="portal-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <img src="./assets/logo 1.webp" alt="logo" height="60px" width="150px">
+                    </a>
+                    <p>Higher education student management and interactive academic platform delivering unified digital
+                        campus services.</p>
+                    <div class="footer-socials">
+                        <a href="error.html" class="social-link" aria-label="Twitter"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="error.html" class="social-link" aria-label="LinkedIn"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="error.html" class="social-link" aria-label="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="error.html" class="social-link" aria-label="Discord"><i
+                                class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link"><i class="fa-solid fa-angle-right"></i>
+                                Home</a></li>
+                        <li><a href="courses.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> My
+                                Courses</a></li>
+                        <li><a href="grades.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Grades</a>
+                        </li>
+                        <li><a href="schedule.html" class="footer-link"><i class="fa-solid fa-angle-right"></i>
+                                Schedule</a></li>
+                        <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angle-right"></i>
+                                Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Account</h4>
+                    <ul class="footer-links">
+                        <li><a href="auth.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Sign In</a>
+                        </li>
+                        <li><a href="auth.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Portal
+                                Registration</a></li>
+                        <li><a href="auth.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Password
+                                Reset</a></li>
+                        <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> IT Help
+                                Desk</a></li>
+                    </ul>
+                </div>
+
+                <div class="newsletter-box">
+                    <h4 class="footer-heading">Campus Bulletins</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem;">Subscribe for priority alerts,
+                        examination notices, and term deadlines.</p>
+                    <form id="footerNewsletterForm" class="newsletter-input-group" novalidate>
+                        <input type="email" id="footerNewsletterEmail" class="form-input"
+                            placeholder="student@university.edu" required />
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduPortal Systems Inc. All rights reserved.</p>
+                <ul class="footer-legal-links">
+                    <li><a href="error.html">Privacy Policy</a></li>
+                    <li><a href="error.html">Terms of Use</a></li>
+                    <li><a href="error.html">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+</body>
+
+</html>

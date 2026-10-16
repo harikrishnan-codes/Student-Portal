@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="icon" href="./assets/logo.webp" />
+    <link rel="stylesheet" href="contact.css" />
+    <link rel="stylesheet" href="root.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header class="portal-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo" aria-label="Student Portal Home">
+                <img src="./assets/logo 1.webp" alt="logo" height="60px" width="150px">
+            </a>
+
+            <nav aria-label="Main Navigation">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+                    </li>
+                    <li><a href="courses.html" class="nav-link"><i class="fa-solid fa-book-open-reader"></i> My
+                            Courses</a></li>
+                    <li><a href="grades.html" class="nav-link"><i class="fa-solid fa-chart-line"></i> Grades</a></li>
+                    <li><a href="schedule.html" class="nav-link"><i class="fa-solid fa-calendar-days"></i> Schedule</a>
+                    </li>
+                    <li><a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope-open-text"></i>
+                            Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="auth.html" class="btn btn-secondary"><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign
+                    In</a>
+                <a href="auth.html" class="btn btn-primary"><i class="fa-solid fa-user-shield"></i> Portal Access</a>
+            </div>
+
+            <button type="button" class="hamburger-toggle" id="hamburgerBtn" aria-label="Open navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+        <div class="drawer-header">
+            <a href="index.html" class="brand-logo">
+                <img src="./assets/logo 1.webp" alt="logo" height="60px" width="150px">
+            </a>
+            <button type="button" class="drawer-close-btn" id="closeDrawerBtn" aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <ul class="drawer-nav-menu">
+            <li><a href="index.html" class="drawer-nav-link"><i class="fa-solid fa-table-columns"></i> Home</a>
+            </li>
+            <li><a href="courses.html" class="drawer-nav-link"><i class="fa-solid fa-book-open-reader"></i> My
+                    Courses</a></li>
+            <li><a href="grades.html" class="drawer-nav-link"><i class="fa-solid fa-chart-line"></i> Grades</a></li>
+            <li><a href="schedule.html" class="drawer-nav-link"><i class="fa-solid fa-calendar-days"></i> Schedule</a>
+            </li>
+            <li><a href="contact.html" class="drawer-nav-link"><i class="fa-solid fa-envelope-open-text"></i>
+                    Contact</a></li>
+        </ul>
+
+        <div class="drawer-footer">
+            <a href="auth.html" class="btn btn-secondary" style="width: 100%;"><i
+                    class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</a>
+            <a href="auth.html" class="btn btn-primary" style="width: 100%;"><i class="fa-solid fa-user-shield"></i>
+                Portal Access</a>
+        </div>
+    </aside>
+
+
+
+
+
+
+
+    <section class="contact-hero-section" id="contact-hero">
+  <!-- Full Photographic Background with Monochromatic Dark Overlay -->
+  <div class="contact-bg-media-wrap" aria-hidden="true">
+    <img 
+      src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80" 
+      alt="Academic Consultation & Help Desk Hub" 
+      class="contact-bg-media-img"
+    />
+    <div class="contact-bg-overlay-tint"></div>
+    <div class="contact-bg-radial-spotlight"></div>
+    <div class="contact-bg-grid-mesh"></div>
+  </div>
+
+  <div class="container contact-hero-container">
+    <div class="contact-hero-grid">
+      
+      <!-- Left Column: Copy & Direct Contact Channels -->
+      <div class="contact-hero-copy">
+        
+        <!-- Floating Pill Announcement Badge -->
+        <a href="#contact-inquiry-section" class="floating-announcement-pill">
+          <span class="pill-spark-icon">
+            <i class="fa-solid fa-headset"></i>
+          </span>
+          <span class="pill-label">Admissions & Registrar Support Active</span>
+          <span class="pill-arrow-tag">
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </a>
+
+        <!-- Large Tight-Tracked Heading -->
+        <h1 class="contact-hero-heading">
+          Connect with Campus <span class="gradient-text-shimmer">Advisors & Faculty.</span>
+        </h1>
+
+        <!-- Narrative Subtitle -->
+        <p class="contact-hero-sub">
+          Have inquiries regarding semester course registration, transcript validations, lab access permits, or thesis supervision? Our academic council and departmental desks are here to assist.
+        </p>
+
+        <!-- Dual CTA Buttons -->
+        <div class="contact-hero-actions">
+          <a href="#contact-inquiry-section" class="btn btn-hero-solid">
+            <span>Send Secure Inquiry</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </a>
+          <a href="tel:+025757576560" class="btn btn-hero-ghost">
+            <i class="fa-solid fa-phone"></i>
+            <span>+025 757 576 560</span>[cite: 2]
+          </a>
+        </div>
+
+        <!-- Trust Stats Strip -->
+        <div class="contact-trust-metrics">
+          <div class="trust-stat">
+            <span class="trust-stat-number">&lt; 2 hrs</span>
+            <span class="trust-stat-label">Average Ticket Response</span>
+          </div>
+          <div class="trust-stat-separator"></div>
+          <div class="trust-stat">
+            <span class="trust-stat-number">100%</span>
+            <span class="trust-stat-label">Verified Faculty Relay</span>
+          </div>
+          <div class="trust-stat-separator"></div>
+          <div class="trust-stat">
+            <span class="trust-stat-number">24/7</span>
+            <span class="trust-stat-label">Emergency Desk</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Interactive 3D Tilt Contact Console Card -->
+      <div class="contact-hero-visual">
+        <div class="tilt-card-perspective-wrapper" id="contactTiltWrapper">
+          <div class="floating-tilt-card" id="contactTiltCard">
+            
+            <div class="card-ambient-specular"></div>
+
+            <!-- Card Header -->
+            <div class="tilt-card-header">
+              <div class="card-status-beacon">
+                <span class="beacon-dot"></span>
+                <span class="beacon-text">Help Desk Live</span>
+              </div>
+              <span class="card-term-tag">Campus Central</span>
+            </div>
+
+            <!-- Main Office Showcase -->
+            <div class="tilt-card-main">
+              <div class="course-icon-badge">
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+              <div class="course-meta">
+                <span class="course-code">Administration &bull; Quad A</span>
+                <h3 class="course-name">Office of Academic Affairs</h3>
+                <span class="course-room"><i class="fa-solid fa-location-dot"></i> Turing Hall &bull; Floor 2</span>
+              </div>
+            </div>
+
+            <!-- Desk Hours Simulation Block -->
+            <div class="tilt-timeline-box">
+              <div class="timeline-row">
+                <span class="time-label">Walk-In Operating Hours</span>
+                <span class="time-stamp">08:00 AM &ndash; 05:00 PM</span>
+              </div>
+              <div class="timeline-progress-track">
+                <div class="progress-fill" style="width: 78%;"></div>
+              </div>
+              <div class="timeline-sub-row">
+                <span>Desk Open &bull; 6 Officers Active</span>
+                <span>Wait Time: ~4 mins</span>
+              </div>
+            </div>
+
+            <!-- Card Bottom Channels -->
+            <div class="tilt-card-footer">
+              <div class="seat-occupancy">
+                <i class="fa-solid fa-envelope-circle-check"></i>
+                <span>registrar@university.edu</span>
+              </div>
+              <span class="card-action-pill">
+                <i class="fa-solid fa-shield-check"></i> SSL Active
+              </span>
+            </div>
+
+            <!-- Floating Validation Badge -->
+            <div class="floating-satellite-tag">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Official University Portal</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="contact-form-section" id="contact-inquiry-section">
+  <div class="container">
+    
+    <!-- Section Header adhering to H2 #0f172a and kicker #312e81 specifications -->
+    <div class="form-section-header">
+      <span class="locations-kicker">
+        <i class="fa-solid fa-paper-plane"></i> Direct Registry Relay
+      </span>
+      <h2 class="locations-title">
+        Submit a Secure Inquiry or Schedule Petition
+      </h2>
+      <p class="locations-subtitle">
+        Dispatch encrypted tickets directly to department chairs, curriculum auditors, or compute cluster engineers. All requests receive a tokenized audit tracking ID.
+      </p>
+    </div>
+
+    <div class="inquiry-console-grid">
+      
+      <!-- Left Column: Department Routing & Guidance -->
+      <aside class="inquiry-guidance-col">
+        <div class="guidance-card">
+          <div class="guidance-header">
+            <span class="guidance-badge">
+              <i class="fa-solid fa-shield-halved"></i> 256-Bit TLS Pipeline
+            </span>
+            <h3 class="guidance-title">Inquiry Triage Guidelines</h3>
+          </div>
+
+          <p class="guidance-text">
+            To expedite your review, select the precise administrative track. Supporting documentation (unofficial transcripts, conflict receipts, or medical deferrals) can be securely linked in your dossier.
+          </p>
+
+          <div class="triage-channels-list">
+            <div class="triage-channel-item">
+              <div class="channel-icon">
+                <i class="fa-solid fa-calendar-check"></i>
+              </div>
+              <div class="channel-info">
+                <span class="channel-name">Timetable & Clashes</span>
+                <span class="channel-desc">Processed within 2 to 4 business hours</span>
+              </div>
+            </div>
+
+            <div class="triage-channel-item">
+              <div class="channel-icon">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+              <div class="channel-info">
+                <span class="channel-name">Lab Sandbox Passkeys</span>
+                <span class="channel-desc">Instant token issuance upon faculty check</span>
+              </div>
+            </div>
+
+            <div class="triage-channel-item">
+              <div class="channel-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <div class="channel-info">
+                <span class="channel-name">Thesis Advisory Panel</span>
+                <span class="channel-desc">Routed to departmental committee desk</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="emergency-contact-box">
+            <div class="emergency-box-header">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <span>Same-Day Critical Window?</span>
+            </div>
+            <p class="emergency-box-text">
+              For examination conflicts taking place within the next 24 hours, contact the immediate registrar emergency desk.
+            </p>
+            <a href="tel:+025757576560" class="emergency-phone-btn">
+              <i class="fa-solid fa-phone"></i>
+              <span>+025 757 576 560</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Column: Interactive Form -->
+      <div class="inquiry-form-col">
+        <div class="form-container-card">
+          
+          <form class="interactive-inquiry-form" id="contactInquiryForm" novalidate>
+            
+            <!-- Category Selector Buttons -->
+            <div class="form-field-group">
+              <label class="form-field-label">Select Inquiry Track *</label>
+              <div class="category-toggle-grid">
+                <label class="category-radio-chip">
+                  <input type="radio" name="inquiryTrack" value="timetable" checked />
+                  <span class="chip-content">
+                    <i class="fa-solid fa-calendar-week"></i>
+                    <span>Timetable & Clashes</span>
+                  </span>
+                </label>
+
+                <label class="category-radio-chip">
+                  <input type="radio" name="inquiryTrack" value="lab" />
+                  <span class="chip-content">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span>Lab & Hardware</span>
+                  </span>
+                </label>
+
+                <label class="category-radio-chip">
+                  <input type="radio" name="inquiryTrack" value="advisory" />
+                  <span class="chip-content">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <span>Faculty Advisory</span>
+                  </span>
+                </label>
+
+                <label class="category-radio-chip">
+                  <input type="radio" name="inquiryTrack" value="audit" />
+                  <span class="chip-content">
+                    <i class="fa-solid fa-file-signature"></i>
+                    <span>Degree Audit</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Two-Column Student Credentials -->
+            <div class="form-inputs-row">
+              <div class="form-field-group">
+                <label for="studentFullName" class="form-field-label">Full Name (Alphabets Only) *</label>
+                <div class="input-icon-wrap">
+                  <i class="fa-solid fa-user"></i>
+                  <input 
+                    type="text" 
+                    id="studentFullName" 
+                    name="studentFullName" 
+                    class="form-control-input" 
+                    placeholder="e.g. Raman Harikrishnan" 
+                    autocomplete="off"
+                    required 
+                  />
+                </div>
+                <span class="field-error-msg" id="nameError">Only alphabets and spaces are allowed.</span>
+              </div>
+
+              <div class="form-field-group">
+                <label for="studentIdNumber" class="form-field-label">Student ID Number *</label>
+                <div class="input-icon-wrap">
+                  <i class="fa-solid fa-id-badge"></i>
+                  <input 
+                    type="text" 
+                    id="studentIdNumber" 
+                    name="studentIdNumber" 
+                    class="form-control-input" 
+                    placeholder="e.g. STU-2026-8941" 
+                    autocomplete="off"
+                    required 
+                  />
+                </div>
+                <span class="field-error-msg" id="idError">Enter a valid ID (e.g. STU-2026-8941 or alphanumeric).</span>
+              </div>
+            </div>
+
+            <!-- Two-Column Contact Info -->
+            <div class="form-inputs-row">
+              <div class="form-field-group">
+                <label for="studentEmail" class="form-field-label">University Email *</label>
+                <div class="input-icon-wrap">
+                  <i class="fa-solid fa-envelope"></i>
+                  <input 
+                    type="email" 
+                    id="studentEmail" 
+                    name="studentEmail" 
+                    class="form-control-input" 
+                    placeholder="student@university.edu" 
+                    autocomplete="off"
+                    required 
+                  />
+                </div>
+                <span class="field-error-msg" id="emailError">Please enter a valid email address (e.g. name@domain.com).</span>
+              </div>
+
+              <div class="form-field-group">
+                <label for="courseModuleRef" class="form-field-label">Course / Module Ref *</label>
+                <div class="input-icon-wrap">
+                  <i class="fa-solid fa-bookmark"></i>
+                  <input 
+                    type="text" 
+                    id="courseModuleRef" 
+                    name="courseModuleRef" 
+                    class="form-control-input" 
+                    placeholder="e.g. CS-482" 
+                    autocomplete="off"
+                    required
+                  />
+                </div>
+                <span class="field-error-msg" id="courseError">Please enter a valid course reference code (e.g. CS-482).</span>
+              </div>
+            </div>
+
+            <!-- Detailed Message Area -->
+            <div class="form-field-group">
+              <label for="inquiryDetails" class="form-field-label">Petition Statement or Inquiry *</label>
+              <textarea 
+                id="inquiryDetails" 
+                name="inquiryDetails" 
+                class="form-control-textarea" 
+                rows="5" 
+                placeholder="State specific lecture dates, overlapping slots, prerequisite queries, or requested faculty accommodations (min 15 characters)..." 
+                required
+              ></textarea>
+              <span class="field-error-msg" id="detailsError">Statement must contain at least 15 characters.</span>
+            </div>
+
+            <!-- Security Check & Submit Button -->
+            <div class="form-submit-footer">
+              <div class="security-declaration">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>FERPA Compliant Data Encrypted Ingestion</span>
+              </div>
+              <button type="submit" class="btn btn-submit-inquiry" id="submitInquiryBtn">
+                <span>Dispatch Inquiry</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="contact-pinned-section" id="contact-pinned-desks">
+  <div class="container">
+    <div class="pinned-section-layout">
+      
+      <!-- Left Column: Sticky Pinned Directory & Live Status -->
+      <aside class="pinned-sidebar-col">
+        <div class="pinned-sticky-card">
+          <span class="pinned-kicker">
+            <i class="fa-solid fa-compass"></i> Department Directory
+          </span>
+          <h2 class="pinned-title">Liaison Hubs & Support Desks</h2>
+          <p class="pinned-desc">
+            Direct your inquiry to the relevant campus council. As you scroll, explore desk functions, staff relays, and emergency contact channels.
+          </p>
+
+          <div class="pinned-status-box">
+            <div class="status-indicator-live">
+              <span class="beacon-pulse"></span>
+              <span>All 3 Hubs Online &bull; Walk-Ins Welcomed</span>
+            </div>
+            <div class="desk-stats-row">
+              <div class="mini-stat">
+                <span class="mini-num">15 min</span>
+                <span class="mini-lbl">Average Desk Queue</span>
+              </div>
+              <div class="mini-divider"></div>
+              <div class="mini-stat">
+                <span class="mini-num">100%</span>
+                <span class="mini-lbl">Encrypted Inquiries</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pinned-quick-link">
+            <span>Need immediate medical or safety relay?</span>
+            <a href="tel:+025757576560" class="emergency-link">
+              <i class="fa-solid fa-phone-volume"></i> +025 757 576 560
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Column: Scrolling Cards Sequence -->
+      <div class="pinned-scroll-content">
+        
+        <!-- Department Desk 1 -->
+        <article class="desk-detail-card" id="desk-admissions">
+          <div class="desk-card-header">
+            <div class="desk-icon-box">
+              <i class="fa-solid fa-id-card-clip"></i>
+            </div>
+            <div class="desk-header-meta">
+              <span class="desk-tag">Quad A &bull; Floor 1</span>
+              <h3 class="desk-name">Admissions & Enrolment Registry</h3>
+            </div>
+          </div>
+
+          <p class="desk-summary">
+            Responsible for matriculation verification, credit transfers, course audit permits, and transcript apostille requests.
+          </p>
+
+          <div class="desk-data-grid">
+            <div class="data-block">
+              <span class="data-lbl"><i class="fa-solid fa-clock"></i> In-Person Window</span>
+              <span class="data-val">Mon &ndash; Fri &bull; 08:30 AM &ndash; 04:30 PM</span>
+            </div>
+            <div class="data-block">
+              <span class="data-lbl"><i class="fa-solid fa-location-dot"></i> Desk Room</span>
+              <span class="data-val">Turing Hall &bull; Rm 104</span>
+            </div>
+            <div class="data-block">
+              <span class="data-lbl"><i class="fa-solid fa-envelope"></i> Registry Desk</span>
+              <a href="mailto:admissions@university.edu" class="data-link">admissions@university.edu</a>
+            </div>
+          </div>
+
+          <div class="desk-card-footer">
+            <span class="desk-badge active"><i class="fa-solid fa-circle-check"></i> Verification Open</span>
+            <a href="#contact-inquiry-section" class="desk-action-btn">
+              <span>Book Appointment</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Department Desk 2 -->
+        <article class="desk-detail-card" id="desk-faculty">
+          <div class="desk-card-header">
+            <div class="desk-icon-box accent">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="desk-header-meta">
+              <span class="desk-tag">Dean’s Plaza &bull; West Wing</span>
+              <h3 class="desk-name">Faculty Advisory & Research Council</h3>
+            </div>
+          </div>
+
+          <p class="desk-summary">
+            Coordinates dissertation supervisors, departmental thesis milestones, GPU lab passkeys, and graduate research grants.
+          </p>
+
+          <div class="desk-data-grid">
+            <div class="data-block">
+              <span class="data-lbl"><i class="fa-solid fa-clock"></i> In-Person Window</span>
+              <span class="data-val">Tue &ndash; Thu &bull; 10:00 AM &ndash; 05:00 PM</span>
+            </div>
+            <div class="data-block">
+              <span class="data-lbl"><i class="fa-solid fa-location-dot"></i> Desk Room</span>
+              <span class="data-val">Hopper Complex &bull; Rm 310</span>
+            </div>
+            <div class="data-block">
+              <span class="data-lbl"><i class="fa-solid fa-envelope"></i> Research Council</span>
+              <a href="mailto:faculty-liaison@university.edu" class="data-link">faculty-liaison@university.edu</a>
+            </div>
+          </div>
+
+          <div class="desk-card-footer">
+            <span class="desk-badge active"><i class="fa-solid fa-circle-check"></i> Advisors on Duty</span>
+            <a href="#contact-inquiry-section" class="desk-action-btn">
+              <span>Reserve Council Desk</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Department Desk 3 -->
+        <article class="desk-detail-card" id="desk-it">
+          <div class="desk-card-header">
+            <div class="desk-icon-box tech">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <div class="desk-header-meta">
+              <span class="desk-tag">Science Concourse &bull; Sub-Level</span>
+              <h3 class="desk-name">IT Compute & Lab Hardware Support</h3>
+            </div>
+          </div>
+
+          <p class="desk-summary">
+            Assists with campus Wi-Fi 6E configuration, terminal keycard NFC binding, CalDAV token sync errors, and cluster compute quotas.
+          </p>
+
+          <div class="desk-data-grid">
+            <div class="data-block">
+              <span class="data-lbl"><i class="fa-solid fa-clock"></i> In-Person Window</span>
+              <span class="data-val">Daily &bull; 08:00 AM &ndash; 08:00 PM</span>
+            </div>
+            <div class="data-block">
+              <span class="data-lbl"><i class="fa-solid fa-location-dot"></i> Desk Room</span>
+              <span class="data-val">Quantum Lab B-12 Helpdesk</span>
+            </div>
+            <div class="data-block">
+              <span class="data-lbl"><i class="fa-solid fa-envelope"></i> Tech Helpline</span>
+              <a href="mailto:it-support@university.edu" class="data-link">it-support@university.edu</a>
+            </div>
+          </div>
+
+          <div class="desk-card-footer">
+            <span class="desk-badge active"><i class="fa-solid fa-circle-check"></i> Live Diagnostics Up</span>
+            <a href="#contact-inquiry-section" class="desk-action-btn">
+              <span>Submit Ticket</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="contact-team-section" id="contact-team-section">
+  <div class="container">
+    
+    <!-- Section Header adhering to H2 #0f172a and kicker #312e81 specifications -->
+    <div class="team-section-header">
+      <span class="locations-kicker">
+        <i class="fa-solid fa-users-gear"></i> Academic Support Leadership
+      </span>
+      <h2 class="locations-title">
+        Meet Your Faculty Liaison & Registry Officers
+      </h2>
+      <p class="locations-subtitle">
+        Connect directly with dedicated coordinators overseeing credit transfers, thesis reviews, lab clearances, and student wellbeing.
+      </p>
+    </div>
+
+    <!-- Team Members Grid -->
+    <div class="team-members-grid">
+      
+      <!-- Member Card 1 -->
+      <article class="team-card">
+        <div class="team-card-media">
+          <img 
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" 
+            alt="Dr. Aris Thorne" 
+            class="team-member-img"
+          />
+          <div class="team-social-overlay">
+            <a href="mailto:a.thorne@university.edu" class="team-social-link" title="Send Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="error.html" class="team-social-link" title="Academic Profile">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="error.html" class="team-social-link" title="ORCID Record">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </a>
+          </div>
+          <span class="team-badge available">
+            <span class="beacon-pulse-dot"></span>
+            <span>Office Hours Open</span>
+          </span>
+        </div>
+
+        <div class="team-card-body">
+          <div class="team-role-row">
+            <span class="team-role-tag">Dean's Council</span>
+            <span class="team-room"><i class="fa-solid fa-location-dot"></i> Turing Quad 302</span>
+          </div>
+
+          <h3 class="team-member-name">Dr. Aris Thorne</h3>
+          <p class="team-designation">Head of Academic Registrations</p>
+          <p class="team-bio">
+            Specializes in curriculum prerequisite exceptions, double-major timetable audits, and cross-departmental degree validation.
+          </p>
+
+          <div class="team-card-footer">
+            <div class="team-desk-meta">
+              <span class="meta-label">Response Time:</span>
+              <span class="meta-val">&lt; 3 Hours</span>
+            </div>
+            <a href="#contact-inquiry-section" class="team-contact-btn">
+              <span>Book Review</span>
+              <i class="fa-solid fa-calendar-check"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Member Card 2 -->
+      <article class="team-card featured">
+        <div class="team-card-media">
+          <img 
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" 
+            alt="Dr. Elena Rostova" 
+            class="team-member-img"
+          />
+          <div class="team-social-overlay">
+            <a href="mailto:e.rostova@university.edu" class="team-social-link" title="Send Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="error.html" class="team-social-link" title="Academic Profile">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="error.html" class="team-social-link" title="Research Citations">
+              <i class="fa-solid fa-flask"></i>
+            </a>
+          </div>
+          <span class="team-badge available">
+            <span class="beacon-pulse-dot"></span>
+            <span>Desk Live</span>
+          </span>
+        </div>
+
+        <div class="team-card-body">
+          <div class="team-role-row">
+            <span class="team-role-tag accent">Research Directorate</span>
+            <span class="team-room"><i class="fa-solid fa-location-dot"></i> Quantum Lab B-12</span>
+          </div>
+
+          <h3 class="team-member-name">Dr. Elena Rostova</h3>
+          <p class="team-designation">Director of Laboratory Compute</p>
+          <p class="team-bio">
+            Coordinates high-performance GPU allocations, cluster permissions, and dissertation hardware passes for computer science cohorts.
+          </p>
+
+          <div class="team-card-footer">
+            <div class="team-desk-meta">
+              <span class="meta-label">Response Time:</span>
+              <span class="meta-val">&lt; 1 Hour</span>
+            </div>
+            <a href="#contact-inquiry-section" class="team-contact-btn">
+              <span>Book Review</span>
+              <i class="fa-solid fa-calendar-check"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Member Card 3 -->
+      <article class="team-card">
+        <div class="team-card-media">
+          <img 
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" 
+            alt="Marcus Sterling" 
+            class="team-member-img"
+          />
+          <div class="team-social-overlay">
+            <a href="mailto:m.sterling@university.edu" class="team-social-link" title="Send Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="error.html" class="team-social-link" title="Academic Profile">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="error.html" class="team-social-link" title="Student Council Desk">
+              <i class="fa-solid fa-shield-halved"></i>
+            </a>
+          </div>
+          <span class="team-badge queue">
+            <span class="beacon-pulse-dot amber"></span>
+            <span>In Consultation</span>
+          </span>
+        </div>
+
+        <div class="team-card-body">
+          <div class="team-role-row">
+            <span class="team-role-tag tech">Student Affairs</span>
+            <span class="team-room"><i class="fa-solid fa-location-dot"></i> Dean's Plaza West</span>
+          </div>
+
+          <h3 class="team-member-name">Marcus Sterling</h3>
+          <p class="team-designation">Senior Registrar & Timetable Auditor</p>
+          <p class="team-bio">
+            Oversees scheduling disputes, medical leave deferrals, examination room arrangements, and emergency timetable reallocations.
+          </p>
+
+          <div class="team-card-footer">
+            <div class="team-desk-meta">
+              <span class="meta-label">Response Time:</span>
+              <span class="meta-val">&lt; 2 Hours</span>
+            </div>
+            <a href="#contact-inquiry-section" class="team-contact-btn">
+              <span>Book Review</span>
+              <i class="fa-solid fa-calendar-check"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Quick Assistance Banner -->
+    <div class="team-support-strip">
+      <div class="support-strip-left">
+        <div class="support-icon-ring">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <div class="support-strip-copy">
+          <h4 class="strip-heading">Uncertain which officer handles your request?</h4>
+          <p class="strip-text">
+            Submit a general inquiry to our centralized triage console, and our triage system will direct your ticket within 30 minutes.
+          </p>
+        </div>
+      </div>
+      <a href="#contact-inquiry-section" class="btn btn-strip-action">
+        <span>Route My Inquiry</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="contact-map-locations-section" id="contact-campus-map">
+  <div class="container">
+    
+    <!-- Section Header adhering to H2 #0f172a and kicker #312e81 specifications -->
+    <div class="map-section-header">
+      <span class="locations-kicker">
+        <i class="fa-solid fa-map-location-dot"></i> Physical Campus Wayfinding
+      </span>
+      <h2 class="locations-title">
+        Visit Administrative Quads & Advisory Desks
+      </h2>
+      <p class="locations-subtitle">
+        Access physical office locations, barrier-free pedestrian concourses, and parking hub coordinates across the central university precinct.
+      </p>
+    </div>
+
+    <!-- Campus Navigation Grid -->
+    <div class="campus-navigation-grid">
+      
+      <!-- Left Column: Interactive Quad Directory & Commute Details -->
+      <div class="campus-directory-col">
+        
+        <!-- Quad Card 1 (Active by default) -->
+        <article class="campus-venue-card active" data-map-target="turing">
+          <div class="venue-card-header">
+            <div class="venue-icon-box">
+              <i class="fa-solid fa-building-columns"></i>
+            </div>
+            <div class="venue-title-meta">
+              <span class="venue-zone-tag">Main Academic Precinct</span>
+              <h3 class="venue-building-name">Turing Hall & Registry Concourse</h3>
+            </div>
+          </div>
+
+          <p class="venue-desc">
+            Houses Central Admissions, Degree Audit Panels, and Amphitheaters 401–408. Main entry point via North Promenade.
+          </p>
+
+          <div class="venue-amenities-strip">
+            <span class="amenity-pill"><i class="fa-solid fa-wheelchair"></i> Ramped Entry</span>
+            <span class="amenity-pill"><i class="fa-solid fa-square-parking"></i> P1 Visitor Deck</span>
+            <span class="amenity-pill"><i class="fa-solid fa-elevator"></i> North Elevators</span>
+          </div>
+
+          <div class="venue-card-footer">
+            <span class="venue-hours"><i class="fa-regular fa-clock"></i> Mon–Fri: 08:00 AM – 06:00 PM</span>
+            <a href="error.html" class="venue-dir-btn">
+              <span>Directions</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Quad Card 2 -->
+        <article class="campus-venue-card" data-map-target="hopper">
+          <div class="venue-card-header">
+            <div class="venue-icon-box accent">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <div class="venue-title-meta">
+              <span class="venue-zone-tag">Science & Compute Quad</span>
+              <h3 class="venue-building-name">Quantum Laboratory Complex B-12</h3>
+            </div>
+          </div>
+
+          <p class="venue-desc">
+            Dedicated workstation sandbox clusters, hardware terminal clearance desks, and thesis compute suites.
+          </p>
+
+          <div class="venue-amenities-strip">
+            <span class="amenity-pill"><i class="fa-solid fa-id-card"></i> NFC Required</span>
+            <span class="amenity-pill"><i class="fa-solid fa-bolt"></i> EV Charging Stations</span>
+            <span class="amenity-pill"><i class="fa-solid fa-server"></i> Server Deck Level B</span>
+          </div>
+
+          <div class="venue-card-footer">
+            <span class="venue-hours"><i class="fa-regular fa-clock"></i> Daily: 07:30 AM – 10:00 PM</span>
+            <a href="error.html" class="venue-dir-btn">
+              <span>Directions</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Quad Card 3 -->
+        <article class="campus-venue-card" data-map-target="deans">
+          <div class="venue-card-header">
+            <div class="venue-icon-box tech">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="venue-title-meta">
+              <span class="venue-zone-tag">Dean's Plaza West</span>
+              <h3 class="venue-building-name">Faculty Advisory & Student Affairs</h3>
+            </div>
+          </div>
+
+          <p class="venue-desc">
+            Direct faculty consultation pods, student counseling chambers, and urgent scheduling conflict resolution desks.
+          </p>
+
+          <div class="venue-amenities-strip">
+            <span class="amenity-pill"><i class="fa-solid fa-mug-saucer"></i> Student Lounge</span>
+            <span class="amenity-pill"><i class="fa-solid fa-volume-xmark"></i> Quiet Chambers</span>
+            <span class="amenity-pill"><i class="fa-solid fa-shield-check"></i> Safe Zone</span>
+          </div>
+
+          <div class="venue-card-footer">
+            <span class="venue-hours"><i class="fa-regular fa-clock"></i> Mon–Fri: 09:00 AM – 05:00 PM</span>
+            <a href="error.html" class="venue-dir-btn">
+              <span>Directions</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Right Column: Interactive Styled Map Console -->
+      <div class="campus-map-display-col">
+        <div class="map-console-card">
+          
+          <!-- Simulated Stylized Campus Map Surface -->
+          <div class="map-viewport-frame">
+            <img 
+              src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1200&q=80" 
+              alt="University Campus Map Topography" 
+              class="map-base-layer"
+            />
+            <div class="map-overlay-tint"></div>
+            <div class="map-grid-pattern"></div>
+
+            <!-- Interactive Map Pins -->
+            <div class="map-marker-pin pin-turing active" data-marker="turing" style="top: 36%; left: 42%;">
+              <div class="pin-beacon"></div>
+              <div class="pin-label-card">
+                <span class="pin-title">Turing Hall</span>
+                <span class="pin-sub">Central Registry</span>
+              </div>
+            </div>
+
+            <div class="map-marker-pin pin-hopper" data-marker="hopper" style="top: 58%; left: 68%;">
+              <div class="pin-beacon cyan"></div>
+              <div class="pin-label-card">
+                <span class="pin-title">Lab B-12</span>
+                <span class="pin-sub">Compute Cluster</span>
+              </div>
+            </div>
+
+            <div class="map-marker-pin pin-deans" data-marker="deans" style="top: 72%; left: 28%;">
+              <div class="pin-beacon purple"></div>
+              <div class="pin-label-card">
+                <span class="pin-title">Dean's Plaza</span>
+                <span class="pin-sub">Advisory Pods</span>
+              </div>
+            </div>
+
+            <!-- On-Map Floating Route Badge -->
+            <div class="map-floating-route-card">
+              <div class="route-icon-box">
+                <i class="fa-solid fa-person-walking"></i>
+              </div>
+              <div class="route-info">
+                <span class="route-title">Central Station &rarr; Turing Hall</span>
+                <span class="route-meta">6 min walk &bull; 480 meters &bull; Level Concourse</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Console Bottom Control Bar -->
+          <div class="map-console-footer">
+            <div class="map-gps-coordinates">
+              <i class="fa-solid fa-crosshairs"></i>
+              <span>Coordinates: 42.3601° N, 71.0942° W &bull; Zone 1 Central</span>
+            </div>
+            <div class="map-actions-group">
+              <a href="error.html" class="btn btn-map-external">
+                <i class="fa-brands fa-google"></i>
+                <span>Open in Google Maps</span>
+              </a>
+              <a href="error.html" class="btn btn-map-external">
+                <i class="fa-brands fa-apple"></i>
+                <span>Apple Maps</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="contact-final-cta-section" id="contact-final-cta">
+  <div class="container">
+    <div class="contact-cta-shell">
+      
+      <!-- Ambient Lighting & Precision Grid Geometry -->
+      <div class="contact-cta-glow-spot"></div>
+      <div class="contact-cta-grid-pattern" aria-hidden="true"></div>
+
+      <div class="contact-cta-content-wrapper">
+        
+        <!-- Kicker Badge adhering to high-contrast dark surface rules -->
+        <span class="contact-final-kicker">
+          <i class="fa-solid fa-headset"></i> Immediate Assistance & Triage
+        </span>
+
+        <!-- Section Title (H2 with high-contrast text-bright styling) -->
+        <h2 class="contact-final-title">
+          Need Urgent Administrative or Academic Support?
+        </h2>
+
+        <!-- Narrative Subtitle -->
+        <p class="contact-final-subtitle">
+          Whether you require same-day examination deferral counseling, emergency compute passkeys, or campus safety relays, our centralized registrar team is accessible across all direct channels.
+        </p>
+
+        <!-- Direct Channel Contact Cards Grid -->
+        <div class="contact-hotline-grid">
+          
+          <div class="hotline-card">
+            <div class="hotline-icon-wrap">
+              <i class="fa-solid fa-phone-volume"></i>
+            </div>
+            <div class="hotline-details">
+              <span class="hotline-label">Direct Voice Dispatch</span>
+              <a href="tel:+025757576560" class="hotline-val">+025 757 576 560</a>
+              <span class="hotline-meta">Mon–Fri: 08:00 AM – 06:00 PM</span>
+            </div>
+          </div>
+
+          <div class="hotline-card">
+            <div class="hotline-icon-wrap email-icon">
+              <i class="fa-solid fa-envelope-circle-check"></i>
+            </div>
+            <div class="hotline-details">
+              <span class="hotline-label">Encrypted Registry Inbox</span>
+              <a href="mailto:registrar@university.edu" class="hotline-val">registrar@university.edu</a>
+              <span class="hotline-meta">Guaranteed response &lt; 2 hours</span>
+            </div>
+          </div>
+
+          <div class="hotline-card">
+            <div class="hotline-icon-wrap emergency-icon">
+              <i class="fa-solid fa-shield-heart"></i>
+            </div>
+            <div class="hotline-details">
+              <span class="hotline-label">24/7 Security & Health Relay</span>
+              <a href="tel:+025757576999" class="hotline-val">+025 757 576 999</a>
+              <span class="hotline-meta">Immediate campus dispatch</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Primary Actions -->
+        <div class="contact-cta-actions">
+          <a href="#contact-inquiry-section" class="btn btn-contact-primary">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Submit Academic Petition</span>
+          </a>
+          <a href="schedule.html" class="btn btn-contact-outline">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>View Full Timetable</span>
+          </a>
+        </div>
+
+        <!-- Trust Badges Strip -->
+        <div class="contact-trust-matrix">
+          <div class="trust-matrix-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Official University Registry Domain</span>
+          </div>
+          <div class="trust-matrix-divider"></div>
+          <div class="trust-matrix-item">
+            <i class="fa-solid fa-lock"></i>
+            <span>FERPA / GDPR Protected Channel</span>
+          </div>
+          <div class="trust-matrix-divider"></div>
+          <div class="trust-matrix-item">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Instant Dispatch Ticket Tracking</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+    <footer class="portal-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <img src="./assets/logo 1.webp" alt="logo" height="60px" width="150px">
+                    </a>
+                    <p>Higher education student management and interactive academic platform delivering unified digital
+                        campus services.</p>
+                    <div class="footer-socials">
+                        <a href="error.html" class="social-link" aria-label="Twitter"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="error.html" class="social-link" aria-label="LinkedIn"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="error.html" class="social-link" aria-label="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="error.html" class="social-link" aria-label="Discord"><i
+                                class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link"><i class="fa-solid fa-angle-right"></i>
+                                Home</a></li>
+                        <li><a href="courses.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> My
+                                Courses</a></li>
+                        <li><a href="grades.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Grades</a>
+                        </li>
+                        <li><a href="schedule.html" class="footer-link"><i class="fa-solid fa-angle-right"></i>
+                                Schedule</a></li>
+                        <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angle-right"></i>
+                                Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Account</h4>
+                    <ul class="footer-links">
+                        <li><a href="auth.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Sign In</a>
+                        </li>
+                        <li><a href="auth.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Portal
+                                Registration</a></li>
+                        <li><a href="auth.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> Password
+                                Reset</a></li>
+                        <li><a href="contact.html" class="footer-link"><i class="fa-solid fa-angle-right"></i> IT Help
+                                Desk</a></li>
+                    </ul>
+                </div>
+
+                <div class="newsletter-box">
+                    <h4 class="footer-heading">Campus Bulletins</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.9rem;">Subscribe for priority alerts,
+                        examination notices, and term deadlines.</p>
+                    <form id="footerNewsletterForm" class="newsletter-input-group" novalidate>
+                        <input type="email" id="footerNewsletterEmail" class="form-input"
+                            placeholder="student@university.edu" required />
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduPortal Systems Inc. All rights reserved.</p>
+                <ul class="footer-legal-links">
+                    <li><a href="error.html">Privacy Policy</a></li>
+                    <li><a href="error.html">Terms of Use</a></li>
+                    <li><a href="error.html">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+
+</body>
+
+</html>
