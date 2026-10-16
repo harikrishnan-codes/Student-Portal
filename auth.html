@@ -3,76 +3,575 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portal Access - EduPortal</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="root.css" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .auth-container {
-      min-height: calc(100vh - var(--header-height));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem var(--container-gutter);
-    }
-    .auth-card {
-      background: var(--color-bg-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      width: 100%;
-      max-width: 440px;
-      box-shadow: var(--shadow-md);
-    }
-  </style>
-</head>
-<body>
+  <title>Academic Portal &bull; Identity & Access Verification</title>
 
-  <header class="portal-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo" aria-label="Student Portal Home">
-        <span class="brand-icon">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </span>
-        <span>EduPortal</span>
+  <!-- Typography & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body class="auth-body">
+
+  <!-- Ambient Dynamic Mesh Background -->
+  <div class="auth-bg-ambient" aria-hidden="true">
+    <div class="aurora-blob blob-primary"></div>
+    <div class="aurora-blob blob-indigo"></div>
+    <div class="aurora-blob blob-cyan"></div>
+    <div class="auth-grid-overlay"></div>
+  </div>
+
+  <!-- Top Global Navigation Bar -->
+  <header class="auth-top-nav">
+    <div class="container auth-nav-container">
+      <a href="index.html" class="auth-brand-logo" aria-label="Portal Home">
+        <img src="./assets/logo 1.webp" alt="University Logo" height="52" width="130" />
       </a>
-      <a href="index.html" class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i> Home</a>
+      <a href="index.html" class="auth-back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Return to Campus Hub</span>
+      </a>
     </div>
   </header>
 
-  <main class="auth-container">
-    <div class="auth-card">
-      <div style="text-align: center; margin-bottom: 1.5rem;">
-        <span class="brand-icon" style="margin: 0 auto 0.75rem;">
-          <i class="fa-solid fa-lock"></i>
-        </span>
-        <h1 style="font-size: 1.5rem; font-weight: 700;">Student Sign In</h1>
-        <p style="color: var(--color-text-muted); font-size: 0.9rem;">Authenticate using university SSO credentials</p>
-      </div>
+  <!-- Main Identity Console -->
+  <main class="auth-viewport-wrapper">
+    <div class="auth-glass-console">
 
-      <form data-auto-clear="true">
-        <div class="form-group">
-          <label class="form-label">User Identification</label>
-          <div style="position: relative;">
-            <input type="text" class="form-input" placeholder="e.g. STU-2026-904" required />
-          </div>
+      <!-- SECTION 1: SIGNUP (Default Visible View) -->
+      <section class="auth-form-panel active" id="signupPanel" aria-labelledby="signupTitle">
+        <div class="panel-header-block">
+          <span class="auth-status-kicker">
+            <i class="fa-solid fa-id-badge"></i> Enrolment Onboarding
+          </span>
+          <h1 class="panel-heading" id="signupTitle">Create Portal Credentials</h1>
+          <p class="panel-subtext">Provision student or administrative access to academic timetables and console tools.</p>
         </div>
 
-        <div class="form-group">
-          <label class="form-label">Password</label>
-          <div style="position: relative;">
-            <input type="password" class="form-input" placeholder="••••••••••••" required />
+        <form class="auth-form-stream" id="signupForm" novalidate>
+          
+          <!-- Custom Role Selector (Bypassing native select elements) -->
+          <div class="form-control-block">
+            <label class="control-label">Authorized Account Role *</label>
+            <div class="custom-role-segmented-control" id="signupRoleSelector" role="radiogroup" aria-label="Account Role">
+              <button type="button" class="role-segment-btn active" data-role="client" role="radio" aria-checked="true">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Client / Scholar</span>
+              </button>
+              <button type="button" class="role-segment-btn" data-role="admin" role="radio" aria-checked="false">
+                <i class="fa-solid fa-user-shield"></i>
+                <span>Faculty / Admin</span>
+              </button>
+            </div>
+            <!-- Hidden input stores current selection -->
+            <input type="hidden" id="signupRoleInput" name="signupRole" value="client" />
           </div>
+
+          <!-- Full Name Input -->
+          <div class="form-control-block">
+            <label for="signupName" class="control-label">Full Name *</label>
+            <div class="input-glass-wrap">
+              <i class="fa-solid fa-user input-icon"></i>
+              <input 
+                type="text" 
+                id="signupName" 
+                name="signupName" 
+                class="glass-field-input" 
+                placeholder="e.g. Raman Harikrishnan" 
+                autocomplete="off" 
+                required 
+              />
+            </div>
+            <span class="field-error-text" id="signupNameError">Only alphabets and spaces are permitted.</span>
+          </div>
+
+          <!-- University Email Input -->
+          <div class="form-control-block">
+            <label for="signupEmail" class="control-label">Institutional Email *</label>
+            <div class="input-glass-wrap">
+              <i class="fa-solid fa-envelope input-icon"></i>
+              <input 
+                type="email" 
+                id="signupEmail" 
+                name="signupEmail" 
+                class="glass-field-input" 
+                placeholder="identity@university.edu" 
+                autocomplete="off" 
+                required 
+              />
+            </div>
+            <span class="field-error-text" id="signupEmailError">Enter a valid institutional email address.</span>
+          </div>
+
+          <!-- Password with Toggle -->
+          <div class="form-control-block">
+            <label for="signupPassword" class="control-label">Security Passcode *</label>
+            <div class="input-glass-wrap">
+              <i class="fa-solid fa-key input-icon"></i>
+              <input 
+                type="password" 
+                id="signupPassword" 
+                name="signupPassword" 
+                class="glass-field-input" 
+                placeholder="Minimum 6 characters" 
+                autocomplete="off" 
+                required 
+              />
+              <button type="button" class="password-toggle-trigger" data-target="signupPassword" aria-label="Toggle password view">
+                <i class="fa-solid fa-eye eye-symbol"></i>
+              </button>
+            </div>
+            <span class="field-error-text" id="signupPasswordError">Passcode must contain at least 6 characters.</span>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-auth-submit" id="signupSubmitBtn">
+            <span>Register & Confirm Profile</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+          <!-- Switch to Login -->
+          <div class="auth-panel-footer">
+            <p>Already have established credentials? <button type="button" class="switch-panel-trigger" data-switch-to="login">Log In to Console</button></p>
+          </div>
+        </form>
+      </section>
+
+      <!-- SECTION 2: LOGIN (Switched via JS) -->
+      <section class="auth-form-panel" id="loginPanel" aria-labelledby="loginTitle">
+        <div class="panel-header-block">
+          <span class="auth-status-kicker">
+            <i class="fa-solid fa-shield-halved"></i> Terminal Verification
+          </span>
+          <h2 class="panel-heading" id="loginTitle">Console Authentication</h2>
+          <p class="panel-subtext">Access authenticated scheduling modules, lab passkeys, and registrar records.</p>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;"><i class="fa-solid fa-arrow-right-to-bracket"></i> Proceed to Dashboard</button>
-      </form>
+        <form class="auth-form-stream" id="loginForm" novalidate>
+          
+          <!-- Full Name Input (Required & Alphabets Only) -->
+          <div class="form-control-block">
+            <label for="loginName" class="control-label">Account Holder Name *</label>
+            <div class="input-glass-wrap">
+              <i class="fa-solid fa-user input-icon"></i>
+              <input 
+                type="text" 
+                id="loginName" 
+                name="loginName" 
+                class="glass-field-input" 
+                placeholder="e.g. Raman Harikrishnan" 
+                autocomplete="off" 
+                required 
+              />
+            </div>
+            <span class="field-error-text" id="loginNameError">Only alphabets and spaces are permitted.</span>
+          </div>
+
+          <!-- Email Input -->
+          <div class="form-control-block">
+            <label for="loginEmail" class="control-label">Authorized Email Address *</label>
+            <div class="input-glass-wrap">
+              <i class="fa-solid fa-envelope input-icon"></i>
+              <input 
+                type="email" 
+                id="loginEmail" 
+                name="loginEmail" 
+                class="glass-field-input" 
+                placeholder="identity@university.edu" 
+                autocomplete="off" 
+                required 
+              />
+            </div>
+            <span class="field-error-text" id="loginEmailError">Please provide a valid institutional email.</span>
+          </div>
+
+          <!-- Password with Toggle -->
+          <div class="form-control-block">
+            <div class="label-split-row">
+              <label for="loginPassword" class="control-label">Passcode *</label>
+              <button type="button" class="switch-panel-trigger link-style" data-switch-to="forgot">Forgot Passcode?</button>
+            </div>
+            <div class="input-glass-wrap">
+              <i class="fa-solid fa-lock input-icon"></i>
+              <input 
+                type="password" 
+                id="loginPassword" 
+                name="loginPassword" 
+                class="glass-field-input" 
+                placeholder="Enter minimum 6 digits" 
+                autocomplete="off" 
+                required 
+              />
+              <button type="button" class="password-toggle-trigger" data-target="loginPassword" aria-label="Toggle password view">
+                <i class="fa-solid fa-eye eye-symbol"></i>
+              </button>
+            </div>
+            <span class="field-error-text" id="loginPasswordError">Passcode must contain at least 6 characters.</span>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-auth-submit" id="loginSubmitBtn">
+            <span>Verify & Authenticate</span>
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+          </button>
+
+          <!-- Switch to Signup -->
+          <div class="auth-panel-footer">
+            <p>Unregistered student or faculty member? <button type="button" class="switch-panel-trigger" data-switch-to="signup">Create an Account</button></p>
+          </div>
+        </form>
+      </section>
+
+      <!-- SECTION 3: FORGOT PASSWORD (Switched via JS) -->
+      <section class="auth-form-panel" id="forgotPanel" aria-labelledby="forgotTitle">
+        <div class="panel-header-block">
+          <span class="auth-status-kicker warning">
+            <i class="fa-solid fa-key"></i> Passcode Recovery
+          </span>
+          <h2 class="panel-heading" id="forgotTitle">Reset Access Key</h2>
+          <p class="panel-subtext">Provide your registered institutional email to initiate an encrypted token reset relay.</p>
+        </div>
+
+        <form class="auth-form-stream" id="forgotForm" novalidate>
+          
+          <!-- Email Input -->
+          <div class="form-control-block">
+            <label for="forgotEmail" class="control-label">Account Email *</label>
+            <div class="input-glass-wrap">
+              <i class="fa-solid fa-envelope input-icon"></i>
+              <input 
+                type="email" 
+                id="forgotEmail" 
+                name="forgotEmail" 
+                class="glass-field-input" 
+                placeholder="identity@university.edu" 
+                autocomplete="off" 
+                required 
+              />
+            </div>
+            <span class="field-error-text" id="forgotEmailError">Please enter a valid email format.</span>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-auth-submit" id="forgotSubmitBtn">
+            <span>Transmit Recovery Link</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+
+          <!-- Switch to Login -->
+          <div class="auth-panel-footer">
+            <p>Remembered your passcode? <button type="button" class="switch-panel-trigger" data-switch-to="login">Return to Log In</button></p>
+          </div>
+        </form>
+      </section>
+
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  // 1. Role Selection Switching Logic (Custom segmented buttons)
+  const roleButtons = document.querySelectorAll('.role-segment-btn');
+  const roleHiddenInput = document.getElementById('signupRoleInput');
+
+  roleButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      roleButtons.forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-checked', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-checked', 'true');
+
+      const selectedRole = btn.getAttribute('data-role');
+      if (roleHiddenInput) {
+        roleHiddenInput.value = selectedRole;
+      }
+    });
+  });
+
+  // 2. View Panel Switching (Signup <-> Login <-> Forgot)
+  const switchTriggers = document.querySelectorAll('.switch-panel-trigger');
+  const panels = {
+    signup: document.getElementById('signupPanel'),
+    login: document.getElementById('loginPanel'),
+    forgot: document.getElementById('forgotPanel')
+  };
+
+  function displayPanel(panelKey) {
+    Object.values(panels).forEach((panel) => {
+      if (panel) panel.classList.remove('active');
+    });
+
+    if (panels[panelKey]) {
+      panels[panelKey].classList.add('active');
+      // Clear previous error states
+      const errorBlocks = panels[panelKey].querySelectorAll('.form-control-block');
+      errorBlocks.forEach((block) => block.classList.remove('has-error'));
+    }
+  }
+
+  switchTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetPanel = trigger.getAttribute('data-switch-to');
+      displayPanel(targetPanel);
+    });
+  });
+
+  // 3. Password Eye Toggle (Show / Hide Password functionality)
+  const toggleTriggers = document.querySelectorAll('.password-toggle-trigger');
+
+  toggleTriggers.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const inputField = document.getElementById(targetId);
+      const icon = btn.querySelector('.eye-symbol');
+
+      if (inputField) {
+        if (inputField.type === 'password') {
+          inputField.type = 'text';
+          if (icon) {
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+          }
+        } else {
+          inputField.type = 'password';
+          if (icon) {
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+          }
+        }
+      }
+    });
+  });
+
+  // 4. Input Sanitizers (Enforcing Alphabets Only on Name Fields)
+  const nameInputs = [document.getElementById('signupName'), document.getElementById('loginName')];
+
+  nameInputs.forEach((input) => {
+    if (input) {
+      input.addEventListener('input', (e) => {
+        // Automatically strips out digits and special characters in real-time
+        e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, '');
+        clearBlockError(input);
+      });
+    }
+  });
+
+  // Helpers for Field Error Visuals
+  function setBlockError(inputEl, isError) {
+    const parentBlock = inputEl.closest('.form-control-block');
+    if (parentBlock) {
+      if (isError) {
+        parentBlock.classList.add('has-error');
+      } else {
+        parentBlock.classList.remove('has-error');
+      }
+    }
+  }
+
+  function clearBlockError(inputEl) {
+    const parentBlock = inputEl.closest('.form-control-block');
+    if (parentBlock) parentBlock.classList.remove('has-error');
+  }
+
+  // Clear errors dynamically on input
+  const allInputs = document.querySelectorAll('.glass-field-input');
+  allInputs.forEach((field) => {
+    field.addEventListener('input', () => clearBlockError(field));
+  });
+
+  // Validation Patterns
+  const nameRegex = /^[A-Za-z\s]{2,60}$/;
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  // -------------------------------------------------------------
+  // FORM 1: SIGNUP VALIDATION & TRANSITION TO LOGIN
+  // -------------------------------------------------------------
+  const signupForm = document.getElementById('signupForm');
+  if (signupForm) {
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nameEl = document.getElementById('signupName');
+      const emailEl = document.getElementById('signupEmail');
+      const passEl = document.getElementById('signupPassword');
+      const roleVal = roleHiddenInput ? roleHiddenInput.value : 'client';
+
+      let isValid = true;
+
+      // Validate Name (Alphabets only)
+      if (!nameEl.value.trim() || !nameRegex.test(nameEl.value.trim())) {
+        setBlockError(nameEl, true);
+        isValid = false;
+      } else {
+        setBlockError(nameEl, false);
+      }
+
+      // Validate Email format
+      if (!emailEl.value.trim() || !emailRegex.test(emailEl.value.trim())) {
+        setBlockError(emailEl, true);
+        isValid = false;
+      } else {
+        setBlockError(emailEl, false);
+      }
+
+      // Validate Password (min 6 digits / characters)
+      if (!passEl.value || passEl.value.length < 6) {
+        setBlockError(passEl, true);
+        isValid = false;
+      } else {
+        setBlockError(passEl, false);
+      }
+
+      if (!isValid) return;
+
+      // Store provisioned credentials in LocalStorage for test-environment authentication
+      const userRecord = {
+        name: nameEl.value.trim(),
+        email: emailEl.value.trim().toLowerCase(),
+        password: passEl.value,
+        role: roleVal // 'client' or 'admin'
+      };
+      localStorage.setItem('auth_registered_user', JSON.stringify(userRecord));
+
+      // Visual button feedback
+      const submitBtn = document.getElementById('signupSubmitBtn');
+      const originalHtml = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> <span>Profile Registered!</span>';
+      submitBtn.style.background = '#059669';
+
+      setTimeout(() => {
+        // Pre-fill login email for convenience
+        const loginEmailField = document.getElementById('loginEmail');
+        if (loginEmailField) loginEmailField.value = userRecord.email;
+
+        // Reset signup form
+        signupForm.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalHtml;
+        submitBtn.style.background = '';
+
+        // Transition smoothly to Login Panel
+        displayPanel('login');
+      }, 900);
+    });
+  }
+
+  // -------------------------------------------------------------
+  // FORM 2: LOGIN VALIDATION & ROLE DASHBOARD ROUTING
+  // -------------------------------------------------------------
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nameEl = document.getElementById('loginName');
+      const emailEl = document.getElementById('loginEmail');
+      const passEl = document.getElementById('loginPassword');
+
+      let isValid = true;
+
+      // Validate Name (Alphabets only)
+      if (!nameEl.value.trim() || !nameRegex.test(nameEl.value.trim())) {
+        setBlockError(nameEl, true);
+        isValid = false;
+      } else {
+        setBlockError(nameEl, false);
+      }
+
+      // Validate Email
+      if (!emailEl.value.trim() || !emailRegex.test(emailEl.value.trim())) {
+        setBlockError(emailEl, true);
+        isValid = false;
+      } else {
+        setBlockError(emailEl, false);
+      }
+
+      // Validate Password
+      if (!passEl.value || passEl.value.length < 6) {
+        setBlockError(passEl, true);
+        isValid = false;
+      } else {
+        setBlockError(passEl, false);
+      }
+
+      if (!isValid) return;
+
+      const userEmail = emailEl.value.trim().toLowerCase();
+
+      // Retrieve registered user record (if created during signup)
+      const storedUserData = JSON.parse(localStorage.getItem('auth_registered_user') || '{}');
+
+      // Determine authenticated role: uses recorded signup selection, or defaults to client
+      let destinationRole = 'client';
+      if (storedUserData.email === userEmail && storedUserData.role) {
+        destinationRole = storedUserData.role;
+      } else {
+        // Fallback detection: if user typed 'admin' in role or email domain
+        if (userEmail.includes('admin')) {
+          destinationRole = 'admin';
+        }
+      }
+
+      // Save verified active session email and role to localStorage
+      localStorage.setItem('active_session_email', userEmail);
+      localStorage.setItem('active_session_role', destinationRole);
+
+      const submitBtn = document.getElementById('loginSubmitBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> <span>Redirecting Session...</span>';
+      submitBtn.style.background = '#059669';
+
+      setTimeout(() => {
+        // Route to respective dashboards
+        if (destinationRole === 'admin') {
+          window.location.href = 'admin.html';
+        } else {
+          window.location.href = 'client.html';
+        }
+      }, 850);
+    });
+  }
+
+  // -------------------------------------------------------------
+  // FORM 3: FORGOT PASSWORD VALIDATION & REDIRECT TO ERROR.HTML
+  // -------------------------------------------------------------
+  const forgotForm = document.getElementById('forgotForm');
+  if (forgotForm) {
+    forgotForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const emailEl = document.getElementById('forgotEmail');
+
+      if (!emailEl.value.trim() || !emailRegex.test(emailEl.value.trim())) {
+        setBlockError(emailEl, true);
+        return;
+      }
+      setBlockError(emailEl, false);
+
+      const submitBtn = document.getElementById('forgotSubmitBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> <span>Dispatching Relay...</span>';
+
+      setTimeout(() => {
+        // Successfully redirects to error.html as requested
+        window.location.href = 'error.html';
+      }, 750);
+    });
+  }
+
+});
+
+  </script>
+
+
+
 </body>
 </html>

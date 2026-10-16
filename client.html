@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student & Scholar Workspace &bull; CampusMatrix</title>
+
+  <!-- Typography & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="client.css" />
+</head>
+<body class="dashboard-body">
+
+  <!-- Mobile Backdrop Overlay -->
+  <div class="dashboard-backdrop" id="dashboardBackdrop" aria-hidden="true"></div>
+
+  <div class="dashboard-layout-root">
+    
+    <!-- Collapsible / Sticky Sidebar Navigation (Deep #312e81 Ambient Theme) -->
+    <aside class="dashboard-sidebar" id="dashboardSidebar" aria-label="Student Navigation Console">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand-logo">
+          <img src="./assets/logo 1.webp" alt="CampusMatrix Logo" height="48" width="120" />
+        </a>
+        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close navigation sidebar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- User Card with Active Session Email -->
+      <div class="sidebar-user-card">
+        <div class="sidebar-avatar">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div class="sidebar-user-meta">
+          <span class="user-role-badge">Scholar / Client</span>
+          <span class="user-email-display" id="clientUserEmail">student@university.edu</span>
+        </div>
+      </div>
+
+      <!-- Tab Navigation Switcher -->
+      <nav class="sidebar-nav">
+        <span class="nav-group-label">Academic Workspace</span>
+        <ul class="sidebar-menu-list">
+          <li>
+            <button type="button" class="sidebar-nav-tab active" data-tab="overview">
+              <i class="fa-solid fa-table-columns"></i>
+              <span>Scholar Overview</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="sidebar-nav-tab" data-tab="schedule">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>My Enrolled Schedule</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="sidebar-nav-tab" data-tab="courses">
+              <i class="fa-solid fa-book-open-reader"></i>
+              <span>Active Course Tracks</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="sidebar-nav-tab" data-tab="petitions">
+              <i class="fa-solid fa-envelope-open-text"></i>
+              <span>My Sent Petitions</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="sidebar-nav-tab" data-tab="credentials">
+              <i class="fa-solid fa-id-card-clip"></i>
+              <span>NFC & Lab Passkeys</span>
+            </button>
+          </li>
+        </ul>
+
+        <span class="nav-group-label">Direct Portal Anchors</span>
+        <ul class="sidebar-menu-list">
+          <li>
+            <a href="schedule.html" class="sidebar-external-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Full Schedule Matrix</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="sidebar-external-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Contact Liaison Desks</span>
+            </a>
+          </li>
+          <li>
+            <a href="courses.html" class="sidebar-external-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Electives Directory</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="auth.html" class="btn btn-sidebar-logout" id="clientLogoutBtn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Terminate Session</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Container -->
+    <div class="dashboard-main-shell">
+      
+      <!-- Top Action Bar -->
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button type="button" class="hamburger-menu-toggle" id="hamburgerMenuBtn" aria-label="Open sidebar menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="topbar-title-block">
+            <h1 class="topbar-page-heading" id="currentViewTitle">Scholar Console</h1>
+            <span class="topbar-crumb">Computer Science &bull; Undergraduate Track 2026</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Session Email Display Pill -->
+          <div class="session-email-pill">
+            <span class="beacon-dot"></span>
+            <span class="session-label">Session:</span>
+            <strong class="session-email-val" id="topbarEmailDisplay">student@university.edu</strong>
+          </div>
+
+          <a href="error.html" class="topbar-icon-action" aria-label="System Alerts">
+            <i class="fa-solid fa-bell"></i>
+            <span class="notification-indicator"></span>
+          </a>
+
+          <a href="schedule.html" class="btn btn-topbar-action">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Browse Timetable</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- View Sections Switched via JavaScript -->
+      <main class="dashboard-content-viewport">
+
+        <!-- TAB 1: SCHOLAR OVERVIEW -->
+        <section class="tab-pane active" id="pane-overview">
+          <div class="stats-overview-grid">
+            <div class="stat-metric-card">
+              <div class="stat-icon-wrap primary">
+                <i class="fa-solid fa-book-bookmark"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Enrolled Modules</span>
+                <h3 class="stat-value">5 Courses</h3>
+                <span class="stat-trend positive"><i class="fa-solid fa-circle-check"></i> 18 ECTS Credits</span>
+              </div>
+            </div>
+
+            <div class="stat-metric-card">
+              <div class="stat-icon-wrap accent">
+                <i class="fa-solid fa-arrows-rotate"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">CalDAV Feed Sync</span>
+                <h3 class="stat-value">Live</h3>
+                <span class="stat-trend neutral"><i class="fa-solid fa-clock"></i> Synced 4 mins ago</span>
+              </div>
+            </div>
+
+            <div class="stat-metric-card">
+              <div class="stat-icon-wrap warning">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Pending Inquiries</span>
+                <h3 class="stat-value">1 Active</h3>
+                <span class="stat-trend alert"><i class="fa-solid fa-hourglass-half"></i> Under Desk Review</span>
+              </div>
+            </div>
+
+            <div class="stat-metric-card">
+              <div class="stat-icon-wrap success">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Lab Terminal NFC</span>
+                <h3 class="stat-value">Authorized</h3>
+                <span class="stat-trend positive"><i class="fa-solid fa-microchip"></i> Lab B-12 Cleared</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card-grid">
+            <div class="content-panel-card">
+              <div class="panel-card-header">
+                <div>
+                  <h4 class="card-title">Today's Lecture & Laboratory Schedule</h4>
+                  <p class="card-sub">Your personal verified room reservations and allocated lecture seats.</p>
+                </div>
+                <a href="schedule.html" class="btn btn-panel-action">
+                  <span>View Full Timetable</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+              <div class="table-responsive-wrap">
+                <table class="dashboard-table">
+                  <thead>
+                    <tr>
+                      <th>Time Window</th>
+                      <th>Module Code</th>
+                      <th>Classroom & Quad</th>
+                      <th>Instructor</th>
+                      <th>Attendance Token</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>09:00 AM &ndash; 10:45 AM</strong></td>
+                      <td><strong>CS-482</strong> <span class="badge-sub">Advanced Neural Networks</span></td>
+                      <td>Turing Hall &bull; Rm 402</td>
+                      <td>Dr. Aris Thorne</td>
+                      <td><span class="status-badge live">Verified</span></td>
+                      <td><a href="error.html" class="btn-table-action">Check In</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>01:15 PM &ndash; 03:00 PM</strong></td>
+                      <td><strong>PHYS-310</strong> <span class="badge-sub">Quantum Electrodynamics</span></td>
+                      <td>Hopper Complex &bull; Rm 310</td>
+                      <td>Dr. Elena Rostova</td>
+                      <td><span class="status-badge live">Verified</span></td>
+                      <td><a href="error.html" class="btn-table-action">Check In</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>03:30 PM &ndash; 05:00 PM</strong></td>
+                      <td><strong>LAB-B12</strong> <span class="badge-sub">GPU Optimization Sandbox</span></td>
+                      <td>Quantum Lab Complex</td>
+                      <td>Marcus Sterling</td>
+                      <td><span class="status-badge warning">Terminal #14 Reserved</span></td>
+                      <td><a href="error.html" class="btn-table-action">NFC Key</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 2: MY ENROLLED SCHEDULE (SCHEDULE.HTML CONTENT STREAM) -->
+        <section class="tab-pane" id="pane-schedule">
+          <div class="content-panel-card">
+            <div class="panel-card-header">
+              <div>
+                <h4 class="card-title">Weekly Lecture Allocation & CalDAV Subscriptions</h4>
+                <p class="card-sub">Directly synchronized with the university schedule master repository.</p>
+              </div>
+              <a href="schedule.html" class="btn btn-panel-action">
+                <span>Open Timetable Page</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <div class="timetable-audit-strip">
+              <div class="audit-status-box">
+                <i class="fa-solid fa-calendar-check"></i>
+                <div>
+                  <strong>Calendar Subscription Feed:</strong>
+                  <span>webcal://campusmatrix.edu/feed/scholar-2026</span>
+                </div>
+              </div>
+              <div class="audit-status-box">
+                <i class="fa-solid fa-shield-check"></i>
+                <div>
+                  <strong>Zero Overlaps Detected:</strong>
+                  <span>Automated clash protection active</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-responsive-wrap">
+              <table class="dashboard-table">
+                <thead>
+                  <tr>
+                    <th>Day</th>
+                    <th>Module</th>
+                    <th>Hours</th>
+                    <th>Building Location</th>
+                    <th>CalDAV Push</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Monday</strong></td>
+                    <td>CS-482 &bull; Neural Networks</td>
+                    <td>09:00 AM &ndash; 10:45 AM</td>
+                    <td>Turing Hall Rm 402</td>
+                    <td><a href="error.html" class="btn-table-action"><i class="fa-solid fa-arrows-rotate"></i> Sync</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tuesday</strong></td>
+                    <td>MATH-240 &bull; Discrete Structures</td>
+                    <td>11:00 AM &ndash; 12:45 PM</td>
+                    <td>Dean's Plaza Pod A</td>
+                    <td><a href="error.html" class="btn-table-action"><i class="fa-solid fa-arrows-rotate"></i> Sync</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Thursday</strong></td>
+                    <td>PHYS-310 &bull; Quantum Electrodynamics</td>
+                    <td>01:15 PM &ndash; 03:00 PM</td>
+                    <td>Hopper Complex Rm 310</td>
+                    <td><a href="error.html" class="btn-table-action"><i class="fa-solid fa-arrows-rotate"></i> Sync</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 3: ACTIVE COURSE TRACKS (COURSES.HTML CONTENT STREAM) -->
+        <section class="tab-pane" id="pane-courses">
+          <div class="content-panel-card">
+            <div class="panel-card-header">
+              <div>
+                <h4 class="card-title">Registered Academic Units & Syllabi</h4>
+                <p class="card-sub">Curriculum status, faculty leads, and course material repositories.</p>
+              </div>
+              <a href="courses.html" class="btn btn-panel-action">
+                <span>View Courses Page</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <div class="venue-cards-grid">
+              <div class="venue-status-item">
+                <div class="venue-icon"><i class="fa-solid fa-code"></i></div>
+                <div class="venue-info">
+                  <h5>CS-482: Advanced Neural Networks</h5>
+                  <p>Instructor: Dr. Aris Thorne &bull; 4 ECTS &bull; Tuesdays & Thursdays</p>
+                  <span class="tag-status green"><i class="fa-solid fa-check"></i> Enrolment Confirmed</span>
+                </div>
+                <a href="error.html" class="btn-table-action">Course Syllabus</a>
+              </div>
+
+              <div class="venue-status-item">
+                <div class="venue-icon accent"><i class="fa-solid fa-atom"></i></div>
+                <div class="venue-info">
+                  <h5>PHYS-310: Quantum Electrodynamics</h5>
+                  <p>Instructor: Dr. Elena Rostova &bull; 4 ECTS &bull; Mondays & Wednesdays</p>
+                  <span class="tag-status green"><i class="fa-solid fa-check"></i> Lab Permitted</span>
+                </div>
+                <a href="error.html" class="btn-table-action">Course Syllabus</a>
+              </div>
+
+              <div class="venue-status-item">
+                <div class="venue-icon purple"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="venue-info">
+                  <h5>MATH-240: Discrete Mathematics & Logic</h5>
+                  <p>Instructor: Marcus Sterling &bull; 3 ECTS &bull; Fridays</p>
+                  <span class="tag-status green"><i class="fa-solid fa-check"></i> Enrolment Confirmed</span>
+                </div>
+                <a href="error.html" class="btn-table-action">Course Syllabus</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 4: MY SENT PETITIONS (CONTACT.HTML FORMS PIPELINE) -->
+        <section class="tab-pane" id="pane-petitions">
+          <div class="content-panel-card">
+            <div class="panel-card-header">
+              <div>
+                <h4 class="card-title">Dispatched Inquiries & Petition Trackers</h4>
+                <p class="card-sub">Real-time status of forms dispatched to faculty desks and registrar panels.</p>
+              </div>
+              <a href="contact.html#contact-inquiry-section" class="btn btn-panel-action">
+                <span>Send New Petition</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </a>
+            </div>
+
+            <div class="table-responsive-wrap">
+              <table class="dashboard-table">
+                <thead>
+                  <tr>
+                    <th>Tracking Token</th>
+                    <th>Category</th>
+                    <th>Dispatched Date</th>
+                    <th>Assigned Desk</th>
+                    <th>Verification State</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>#TK-8912</strong></td>
+                    <td>Lecture Clash Waiver</td>
+                    <td>Oct 16, 2026</td>
+                    <td>Admissions & Registrar Hub</td>
+                    <td><span class="status-badge live">Approved & Sealed</span></td>
+                    <td><a href="error.html" class="btn-table-action">View Receipt</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#TK-8919</strong></td>
+                    <td>Quantum Lab B-12 Compute Quota</td>
+                    <td>Oct 16, 2026</td>
+                    <td>Laboratory Council</td>
+                    <td><span class="status-badge warning">In Review (~2 hrs)</span></td>
+                    <td><a href="error.html" class="btn-table-action">View Receipt</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 5: NFC & LAB PASSKEYS -->
+        <section class="tab-pane" id="pane-credentials">
+          <div class="content-panel-card">
+            <div class="panel-card-header">
+              <div>
+                <h4 class="card-title">Security Keycards & Hardware Cluster Credentials</h4>
+                <p class="card-sub">Cryptographic tokens required for campus access gates and workstation compute nodes.</p>
+              </div>
+              <a href="error.html" class="btn btn-panel-action">
+                <span>Generate Temporary Pass</span>
+                <i class="fa-solid fa-key"></i>
+              </a>
+            </div>
+
+            <div class="infrastructure-summary-grid">
+              <div class="telemetry-box">
+                <span class="telemetry-label">Campus NFC ID Binding</span>
+                <span class="telemetry-value">Active & Validated</span>
+                <div class="telemetry-bar"><div class="fill green" style="width: 100%;"></div></div>
+              </div>
+              <div class="telemetry-box">
+                <span class="telemetry-label">Lab B-12 Workstation Quota</span>
+                <span class="telemetry-value">16.5 / 20.0 Hours Left</span>
+                <div class="telemetry-bar"><div class="fill" style="width: 82%;"></div></div>
+              </div>
+              <div class="telemetry-box">
+                <span class="telemetry-label">Science Concourse Wi-Fi 6E Profile</span>
+                <span class="telemetry-value">WPA3 Certified</span>
+                <div class="telemetry-bar"><div class="fill green" style="width: 100%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+
+
+
+  <script>
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  // 1. Session Email Hydration (Pulls verified login email from localStorage)
+  const activeEmail = localStorage.getItem('active_session_email') || 'student@university.edu';
+  
+  const sidebarEmailEl = document.getElementById('clientUserEmail');
+  const topbarEmailEl = document.getElementById('topbarEmailDisplay');
+
+  if (sidebarEmailEl) sidebarEmailEl.textContent = activeEmail;
+  if (topbarEmailEl) topbarEmailEl.textContent = activeEmail;
+
+  // 2. Mobile Off-Canvas Drawer Controls & Background Scroll Lock
+  const hamburgerBtn = document.getElementById('hamburgerMenuBtn');
+  const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+  const sidebar = document.getElementById('dashboardSidebar');
+  const backdrop = document.getElementById('dashboardBackdrop');
+  const body = document.body;
+
+  function openSidebar() {
+    sidebar.classList.add('open');
+    backdrop.classList.add('open');
+    body.classList.add('no-scroll'); // Freezes page background scrolling
+    sidebar.setAttribute('aria-hidden', 'false');
+    backdrop.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('open');
+    body.classList.remove('no-scroll'); // Restores page background scrolling
+    sidebar.setAttribute('aria-hidden', 'true');
+    backdrop.setAttribute('aria-hidden', 'true');
+  }
+
+  if (hamburgerBtn) hamburgerBtn.addEventListener('click', openSidebar);
+  if (sidebarCloseBtn) sidebarCloseBtn.addEventListener('click', closeSidebar);
+  if (backdrop) backdrop.addEventListener('click', closeSidebar);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+      closeSidebar();
+    }
+  });
+
+  // 3. Tab Switching Architecture (Dynamic Content Swapping)
+  const navTabs = document.querySelectorAll('.sidebar-nav-tab');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+  const currentViewTitle = document.getElementById('currentViewTitle');
+
+  const tabTitles = {
+    overview: 'Scholar Workspace Overview',
+    schedule: 'Enrolled Schedule & CalDAV Push',
+    courses: 'My Enrolled Academic Modules',
+    petitions: 'My Sent Petitions & Inquiries',
+    credentials: 'NFC Keycards & Hardware Quotas'
+  };
+
+  navTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const targetPaneKey = tab.getAttribute('data-tab');
+
+      // Update active states on sidebar tab buttons
+      navTabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Swap visible workspace panel
+      tabPanes.forEach((pane) => {
+        if (pane.id === `pane-${targetPaneKey}`) {
+          pane.classList.add('active');
+        } else {
+          pane.classList.remove('active');
+        }
+      });
+
+      // Update page title
+      if (currentViewTitle && tabTitles[targetPaneKey]) {
+        currentViewTitle.textContent = tabTitles[targetPaneKey];
+      }
+
+      // Close mobile drawer on navigation selection if on mobile
+      if (window.innerWidth < 768) {
+        closeSidebar();
+      }
+    });
+  });
+
+  // 4. Session Termination (Clears state & redirects)
+  const logoutBtn = document.getElementById('clientLogoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('active_session_email');
+      localStorage.removeItem('active_session_role');
+      window.location.href = 'auth.html';
+    });
+  }
+
+});
+
+  </script>
+
+
+
+</body>
+</html>

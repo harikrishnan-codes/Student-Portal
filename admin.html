@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faculty & Administration Oversight Console &bull; CampusMatrix</title>
+
+  <!-- Typography & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="dashboard-body">
+
+  <!-- Mobile Backdrop Overlay -->
+  <div class="dashboard-backdrop" id="dashboardBackdrop" aria-hidden="true"></div>
+
+  <div class="dashboard-layout-root">
+    
+    <!-- Collapsible / Sticky Sidebar Navigation -->
+    <aside class="dashboard-sidebar" id="dashboardSidebar" aria-label="Admin Navigation Console">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand-logo">
+          <img src="./assets/logo 1.webp" alt="CampusMatrix Logo" height="48" width="120" />
+        </a>
+        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close navigation sidebar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="sidebar-user-card">
+        <div class="sidebar-avatar">
+          <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <div class="sidebar-user-meta">
+          <span class="user-role-badge">Faculty Admin</span>
+          <span class="user-email-display" id="adminUserEmail">admin@university.edu</span>
+        </div>
+      </div>
+
+      <!-- Tab Navigation Switcher -->
+      <nav class="sidebar-nav">
+        <span class="nav-group-label">Administrative Streams</span>
+        <ul class="sidebar-menu-list">
+          <li>
+            <button type="button" class="sidebar-nav-tab active" data-tab="overview">
+              <i class="fa-solid fa-chart-pie"></i>
+              <span>Console Overview</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="sidebar-nav-tab" data-tab="timetable">
+              <i class="fa-solid fa-calendar-days"></i>
+              <span>Timetable Audits</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="sidebar-nav-tab" data-tab="venues">
+              <i class="fa-solid fa-building-columns"></i>
+              <span>Venue Clearances</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="sidebar-nav-tab" data-tab="petitions">
+              <i class="fa-solid fa-envelope-open-text"></i>
+              <span>Student Petitions</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="sidebar-nav-tab" data-tab="infrastructure">
+              <i class="fa-solid fa-microchip"></i>
+              <span>Lab Infrastructure</span>
+            </button>
+          </li>
+        </ul>
+
+        <span class="nav-group-label">Direct Portal Anchors</span>
+        <ul class="sidebar-menu-list">
+          <li>
+            <a href="schedule.html" class="sidebar-external-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Schedule Live Page</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="sidebar-external-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Contact Live Page</span>
+            </a>
+          </li>
+          <li>
+            <a href="courses.html" class="sidebar-external-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Courses Directory</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="auth.html" class="btn btn-sidebar-logout" id="adminLogoutBtn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Terminate Session</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Container -->
+    <div class="dashboard-main-shell">
+      
+      <!-- Top Action Bar -->
+      <header class="dashboard-topbar">
+        <div class="topbar-left">
+          <button type="button" class="hamburger-menu-toggle" id="hamburgerMenuBtn" aria-label="Open sidebar menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="topbar-title-block">
+            <h1 class="topbar-page-heading" id="currentViewTitle">Administration Console</h1>
+            <span class="topbar-crumb">Dean's Council &bull; Term Spring 2026</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Session Email Display Pill -->
+          <div class="session-email-pill">
+            <span class="beacon-dot"></span>
+            <span class="session-label">Session:</span>
+            <strong class="session-email-val" id="topbarEmailDisplay">admin@university.edu</strong>
+          </div>
+
+          <a href="error.html" class="topbar-icon-action" aria-label="System Alerts">
+            <i class="fa-solid fa-bell"></i>
+            <span class="notification-indicator"></span>
+          </a>
+
+          <a href="schedule.html" class="btn btn-topbar-action">
+            <i class="fa-solid fa-calendar-plus"></i>
+            <span>Schedule Matrix</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- View Sections Switched via JavaScript -->
+      <main class="dashboard-content-viewport">
+
+        <!-- TAB 1: CONSOLE OVERVIEW -->
+        <section class="tab-pane active" id="pane-overview">
+          <div class="stats-overview-grid">
+            <div class="stat-metric-card">
+              <div class="stat-icon-wrap primary">
+                <i class="fa-solid fa-calendar-check"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Active Master Tracks</span>
+                <h3 class="stat-value">342</h3>
+                <span class="stat-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> 100% CalDAV Ingestion</span>
+              </div>
+            </div>
+
+            <div class="stat-metric-card">
+              <div class="stat-icon-wrap accent">
+                <i class="fa-solid fa-building-circle-check"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Reserved Compute Terminals</span>
+                <h3 class="stat-value">88.4%</h3>
+                <span class="stat-trend neutral"><i class="fa-solid fa-circle-notch"></i> Labs B-12 & Turing Hall</span>
+              </div>
+            </div>
+
+            <div class="stat-metric-card">
+              <div class="stat-icon-wrap warning">
+                <i class="fa-solid fa-envelope-open-text"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Pending Petitions</span>
+                <h3 class="stat-value">14</h3>
+                <span class="stat-trend alert"><i class="fa-solid fa-clock"></i> 3 Critical Deadlines</span>
+              </div>
+            </div>
+
+            <div class="stat-metric-card">
+              <div class="stat-icon-wrap success">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Registrar Seals Issued</span>
+                <h3 class="stat-value">1,280</h3>
+                <span class="stat-trend positive"><i class="fa-solid fa-circle-check"></i> Verified Cryptographic Hash</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card-grid">
+            <div class="content-panel-card">
+              <div class="panel-card-header">
+                <div>
+                  <h4 class="card-title">Real-Time Schedule Clash Monitoring</h4>
+                  <p class="card-sub">Autonomous timetable conflict detection across central lecture amphitheaters.</p>
+                </div>
+                <a href="schedule.html" class="btn btn-panel-action">
+                  <span>Inspect Full Matrix</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+              <div class="table-responsive-wrap">
+                <table class="dashboard-table">
+                  <thead>
+                    <tr>
+                      <th>Module Code</th>
+                      <th>Room & Quad</th>
+                      <th>Faculty Member</th>
+                      <th>Cohort Load</th>
+                      <th>Status</th>
+                      <th>Audit Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>CS-482</strong> <span class="badge-sub">Neural Nets</span></td>
+                      <td>Turing Hall &bull; Rm 402</td>
+                      <td>Dr. Aris Thorne</td>
+                      <td>142 / 150</td>
+                      <td><span class="status-badge live">No Collision</span></td>
+                      <td><a href="error.html" class="btn-table-action">Reallocate</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>PHYS-310</strong> <span class="badge-sub">Quantum Electrodynamics</span></td>
+                      <td>Hopper Complex &bull; Rm 310</td>
+                      <td>Dr. Elena Rostova</td>
+                      <td>86 / 90</td>
+                      <td><span class="status-badge live">Optimized</span></td>
+                      <td><a href="error.html" class="btn-table-action">Reallocate</a></td>
+                    </tr>
+                    <tr>
+                      <td><strong>MATH-240</strong> <span class="badge-sub">Discrete Structures</span></td>
+                      <td>Dean's Plaza &bull; Pod A</td>
+                      <td>Marcus Sterling</td>
+                      <td>118 / 120</td>
+                      <td><span class="status-badge warning">Near Capacity</span></td>
+                      <td><a href="error.html" class="btn-table-action">Override</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 2: TIMETABLE AUDITS (SCHEDULE.HTML CONTENT STREAM) -->
+        <section class="tab-pane" id="pane-timetable">
+          <div class="content-panel-card">
+            <div class="panel-card-header">
+              <div>
+                <h4 class="card-title">Enrolment Locking & Examination Deadlines</h4>
+                <p class="card-sub">Reflects synchronized data ingested from the primary Schedule page.</p>
+              </div>
+              <a href="schedule.html" class="btn btn-panel-action">
+                <span>View Public Schedule Page</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <div class="timetable-audit-strip">
+              <div class="audit-status-box">
+                <i class="fa-solid fa-calendar-xmark"></i>
+                <div>
+                  <strong>Add / Drop Window Closes:</strong>
+                  <span>Friday, October 23, 2026 &bull; 11:59 PM EST</span>
+                </div>
+              </div>
+              <div class="audit-status-box">
+                <i class="fa-solid fa-bell"></i>
+                <div>
+                  <strong>Final Exam Seating Lock:</strong>
+                  <span>November 12, 2026 &bull; 08:00 AM EST</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-responsive-wrap">
+              <table class="dashboard-table">
+                <thead>
+                  <tr>
+                    <th>Examination Code</th>
+                    <th>Date & Time Window</th>
+                    <th>Designated Hall</th>
+                    <th>Invigilation Chair</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>EXAM-CS-482</strong></td>
+                    <td>Nov 18, 2026 &bull; 09:00 AM</td>
+                    <td>Euler Amphitheater</td>
+                    <td>Dr. Aris Thorne</td>
+                    <td><a href="error.html" class="btn-table-action">Download Roster</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>EXAM-PHYS-310</strong></td>
+                    <td>Nov 20, 2026 &bull; 02:00 PM</td>
+                    <td>Quantum Lab B-12 Deck</td>
+                    <td>Dr. Elena Rostova</td>
+                    <td><a href="error.html" class="btn-table-action">Download Roster</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 3: VENUE CLEARANCES (FACILITY WAYFINDING) -->
+        <section class="tab-pane" id="pane-venues">
+          <div class="content-panel-card">
+            <div class="panel-card-header">
+              <div>
+                <h4 class="card-title">Campus Precinct Clearance & Wayfinding</h4>
+                <p class="card-sub">Venue access controls synchronized with the central interactive campus map.</p>
+              </div>
+              <a href="contact.html#contact-campus-map" class="btn btn-panel-action">
+                <span>View Campus Wayfinding</span>
+                <i class="fa-solid fa-map-location-dot"></i>
+              </a>
+            </div>
+
+            <div class="venue-cards-grid">
+              <div class="venue-status-item">
+                <div class="venue-icon"><i class="fa-solid fa-building-columns"></i></div>
+                <div class="venue-info">
+                  <h5>Turing Hall & Registry Concourse</h5>
+                  <p>Admissions, Registrar Panels &bull; Amphitheaters 401–408</p>
+                  <span class="tag-status green"><i class="fa-solid fa-check"></i> Access Normal</span>
+                </div>
+                <a href="error.html" class="btn-table-action">Manage NFC Locks</a>
+              </div>
+
+              <div class="venue-status-item">
+                <div class="venue-icon accent"><i class="fa-solid fa-microchip"></i></div>
+                <div class="venue-info">
+                  <h5>Quantum Laboratory Complex B-12</h5>
+                  <p>8x RTX 6000 Ada Sandbox Clusters &bull; GPU Quota Active</p>
+                  <span class="tag-status green"><i class="fa-solid fa-check"></i> High Voltage Cleared</span>
+                </div>
+                <a href="error.html" class="btn-table-action">Manage NFC Locks</a>
+              </div>
+
+              <div class="venue-status-item">
+                <div class="venue-icon purple"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="venue-info">
+                  <h5>Dean's Plaza West Consultation Pods</h5>
+                  <p>Faculty Supervision &bull; Thesis Review Chambers</p>
+                  <span class="tag-status yellow"><i class="fa-solid fa-triangle-exclamation"></i> Heavy Traffic</span>
+                </div>
+                <a href="error.html" class="btn-table-action">Manage NFC Locks</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 4: STUDENT PETITIONS (CONTACT.HTML FORMS PIPELINE) -->
+        <section class="tab-pane" id="pane-petitions">
+          <div class="content-panel-card">
+            <div class="panel-card-header">
+              <div>
+                <h4 class="card-title">Incoming Student Petitions & Scheduling Waivers</h4>
+                <p class="card-sub">Inquiries ingested from the verified Contact Page petition console.</p>
+              </div>
+              <a href="contact.html#contact-inquiry-section" class="btn btn-panel-action">
+                <span>Contact Relay Page</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <div class="table-responsive-wrap">
+              <table class="dashboard-table">
+                <thead>
+                  <tr>
+                    <th>Ticket ID</th>
+                    <th>Student Name</th>
+                    <th>Institutional Email</th>
+                    <th>Inquiry Category</th>
+                    <th>Transmission Date</th>
+                    <th>Decision</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>#TK-8912</strong></td>
+                    <td>Raman Harikrishnan</td>
+                    <td>r.harikrishnan@university.edu</td>
+                    <td>Schedule Clash Override</td>
+                    <td>Oct 16, 2026</td>
+                    <td>
+                      <div class="decision-btn-group">
+                        <a href="error.html" class="btn-decision-approve"><i class="fa-solid fa-check"></i> Approve</a>
+                        <a href="error.html" class="btn-decision-reject"><i class="fa-solid fa-xmark"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>#TK-8914</strong></td>
+                    <td>Yashvik Raman</td>
+                    <td>yashvik@university.edu</td>
+                    <td>Quantum Lab B-12 Passkey</td>
+                    <td>Oct 16, 2026</td>
+                    <td>
+                      <div class="decision-btn-group">
+                        <a href="error.html" class="btn-decision-approve"><i class="fa-solid fa-check"></i> Approve</a>
+                        <a href="error.html" class="btn-decision-reject"><i class="fa-solid fa-xmark"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 5: LAB INFRASTRUCTURE -->
+        <section class="tab-pane" id="pane-infrastructure">
+          <div class="content-panel-card">
+            <div class="panel-card-header">
+              <div>
+                <h4 class="card-title">Compute Node Topology & Wi-Fi 6E Telemetry</h4>
+                <p class="card-sub">Hardware health and real-time network authentication logs.</p>
+              </div>
+              <a href="error.html" class="btn btn-panel-action">
+                <span>Run Diagnostic Sweep</span>
+                <i class="fa-solid fa-bolt"></i>
+              </a>
+            </div>
+
+            <div class="infrastructure-summary-grid">
+              <div class="telemetry-box">
+                <span class="telemetry-label">Active CalDAV Sync Subscriptions</span>
+                <span class="telemetry-value">4,120 Devices</span>
+                <div class="telemetry-bar"><div class="fill" style="width: 92%;"></div></div>
+              </div>
+              <div class="telemetry-box">
+                <span class="telemetry-label">Cluster GPU Utilization (Ada RTX)</span>
+                <span class="telemetry-value">74.2%</span>
+                <div class="telemetry-bar"><div class="fill" style="width: 74%;"></div></div>
+              </div>
+              <div class="telemetry-box">
+                <span class="telemetry-label">Network Radius Authentication Latency</span>
+                <span class="telemetry-value">12 ms</span>
+                <div class="telemetry-bar"><div class="fill green" style="width: 100%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+
+  <script>
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  // 1. Session Email Hydration (Pulls verified login email from localStorage)
+  const activeEmail = localStorage.getItem('active_session_email') || 'admin@university.edu';
+  
+  const sidebarEmailEl = document.getElementById('adminUserEmail');
+  const topbarEmailEl = document.getElementById('topbarEmailDisplay');
+
+  if (sidebarEmailEl) sidebarEmailEl.textContent = activeEmail;
+  if (topbarEmailEl) topbarEmailEl.textContent = activeEmail;
+
+  // 2. Mobile Off-Canvas Drawer Controls & Background Scroll Lock
+  const hamburgerBtn = document.getElementById('hamburgerMenuBtn');
+  const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+  const sidebar = document.getElementById('dashboardSidebar');
+  const backdrop = document.getElementById('dashboardBackdrop');
+  const body = document.body;
+
+  function openSidebar() {
+    sidebar.classList.add('open');
+    backdrop.classList.add('open');
+    body.classList.add('no-scroll'); // Freezes page background scrolling
+    sidebar.setAttribute('aria-hidden', 'false');
+    backdrop.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('open');
+    body.classList.remove('no-scroll'); // Restores page background scrolling
+    sidebar.setAttribute('aria-hidden', 'true');
+    backdrop.setAttribute('aria-hidden', 'true');
+  }
+
+  if (hamburgerBtn) hamburgerBtn.addEventListener('click', openSidebar);
+  if (sidebarCloseBtn) sidebarCloseBtn.addEventListener('click', closeSidebar);
+  if (backdrop) backdrop.addEventListener('click', closeSidebar);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+      closeSidebar();
+    }
+  });
+
+  // 3. Tab Switching Architecture (Dynamic Content Swapping)
+  const navTabs = document.querySelectorAll('.sidebar-nav-tab');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+  const currentViewTitle = document.getElementById('currentViewTitle');
+
+  const tabTitles = {
+    overview: 'Administration Console Overview',
+    timetable: 'Timetable Audits & Exam Windows',
+    venues: 'Facility Clearances & Wayfinding',
+    petitions: 'Student Inquiries & Petition Relays',
+    infrastructure: 'Lab Compute & Hardware Telemetry'
+  };
+
+  navTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const targetPaneKey = tab.getAttribute('data-tab');
+
+      // Update active states on sidebar tab buttons
+      navTabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Swap visible workspace panel
+      tabPanes.forEach((pane) => {
+        if (pane.id === `pane-${targetPaneKey}`) {
+          pane.classList.add('active');
+        } else {
+          pane.classList.remove('active');
+        }
+      });
+
+      // Update page title
+      if (currentViewTitle && tabTitles[targetPaneKey]) {
+        currentViewTitle.textContent = tabTitles[targetPaneKey];
+      }
+
+      // Close mobile drawer on navigation selection if on mobile
+      if (window.innerWidth < 768) {
+        closeSidebar();
+      }
+    });
+  });
+
+  // 4. Session Termination (Clears state & redirects)
+  const logoutBtn = document.getElementById('adminLogoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('active_session_email');
+      localStorage.removeItem('active_session_role');
+      window.location.href = 'auth.html';
+    });
+  }
+
+});
+
+  </script>
+
+
+</body>
+</html>
