@@ -90,8 +90,7 @@
   <section class="contact-hero-section" id="contact-hero">
     <!-- Full Photographic Background with Monochromatic Dark Overlay -->
     <div class="contact-bg-media-wrap" aria-hidden="true">
-      <img src="./assets/img 14.webp"
-        alt="Academic Consultation & Help Desk Hub" class="contact-bg-media-img" />
+      <img src="./assets/img 14.webp" alt="Academic Consultation & Help Desk Hub" class="contact-bg-media-img" />
       <div class="contact-bg-overlay-tint"></div>
       <div class="contact-bg-radial-spotlight"></div>
       <div class="contact-bg-grid-mesh"></div>
@@ -647,8 +646,7 @@
         <!-- Member Card 1 -->
         <article class="team-card">
           <div class="team-card-media">
-            <img src="./assets/girl 25.webp"
-              alt="Dr. Aris Thorne" class="team-member-img" />
+            <img src="./assets/girl 25.webp" alt="Dr. Aris Thorne" class="team-member-img" />
             <div class="team-social-overlay">
               <a href="mailto:a.thorne@university.edu" class="team-social-link" title="Send Email">
                 <i class="fa-solid fa-envelope"></i>
@@ -695,8 +693,7 @@
         <!-- Member Card 2 -->
         <article class="team-card featured">
           <div class="team-card-media">
-            <img src="./assets/girl 26.webp"
-              alt="Dr. Elena Rostova" class="team-member-img" />
+            <img src="./assets/girl 26.webp" alt="Dr. Elena Rostova" class="team-member-img" />
             <div class="team-social-overlay">
               <a href="mailto:e.rostova@university.edu" class="team-social-link" title="Send Email">
                 <i class="fa-solid fa-envelope"></i>
@@ -743,8 +740,7 @@
         <!-- Member Card 3 -->
         <article class="team-card">
           <div class="team-card-media">
-            <img src="./assets/boy 12.webp"
-              alt="Marcus Sterling" class="team-member-img" />
+            <img src="./assets/boy 12.webp" alt="Marcus Sterling" class="team-member-img" />
             <div class="team-social-overlay">
               <a href="mailto:m.sterling@university.edu" class="team-social-link" title="Send Email">
                 <i class="fa-solid fa-envelope"></i>
@@ -945,8 +941,7 @@
 
             <!-- Simulated Stylized Campus Map Surface -->
             <div class="map-viewport-frame">
-              <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1200&q=80"
-                alt="University Campus Map Topography" class="map-base-layer" />
+              <img src="./assets/img world.webp" alt="University Campus Map Topography" class="map-base-layer" />
               <div class="map-overlay-tint"></div>
               <div class="map-grid-pattern"></div>
 
@@ -1173,15 +1168,18 @@
 
         <div class="newsletter-box">
           <h4 class="footer-heading">Campus Bulletins</h4>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Subscribe for priority alerts,
-            examination notices, and term deadlines.</p>
+          <p style="color: var(--color-text-muted, #94a3b8); font-size: 0.9rem;">
+            Subscribe for priority alerts, examination notices, and term deadlines.
+          </p>
           <form id="footerNewsletterForm" class="newsletter-input-group" novalidate>
             <input type="email" id="footerNewsletterEmail" class="form-input" placeholder="student@university.edu"
-              required />
+              autocomplete="off" required />
             <button type="submit" class="newsletter-btn" aria-label="Subscribe">
               <i class="fa-solid fa-paper-plane"></i>
             </button>
           </form>
+          <!-- Dedicated Status Feedback Message Container -->
+          <span class="newsletter-status-msg" id="newsletterStatusMsg" aria-live="polite"></span>
         </div>
       </div>
 

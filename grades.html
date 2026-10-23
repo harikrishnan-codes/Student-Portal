@@ -518,8 +518,8 @@
   <section class="angled-showcase-section" id="angled-showcase-section">
     <!-- Right-Hand High-Resolution Visual Layer -->
     <div class="angled-backdrop-wrap">
-      <img src="./assets/img 2.webp"
-        alt="Campus Research & Academic Verification Facility" class="angled-backdrop-img" />
+      <img src="./assets/img 2.webp" alt="Campus Research & Academic Verification Facility"
+        class="angled-backdrop-img" />
       <div class="angled-backdrop-overlay"></div>
     </div>
 
@@ -826,8 +826,8 @@
   <section class="banner-cta-overlay-section" id="grades-cta-overlay">
     <!-- Parallax Background Photography Layer -->
     <div class="cta-overlay-bg-wrap">
-      <img src="./assets/img 11.webp"
-        alt="University Commencement & Degree Certification" class="cta-overlay-parallax-img" />
+      <img src="./assets/img 11.webp" alt="University Commencement & Degree Certification"
+        class="cta-overlay-parallax-img" />
       <div class="cta-overlay-dark-vignette"></div>
       <div class="cta-overlay-radial-spotlight"></div>
     </div>
@@ -954,15 +954,18 @@
 
         <div class="newsletter-box">
           <h4 class="footer-heading">Campus Bulletins</h4>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem;">Subscribe for priority alerts,
-            examination notices, and term deadlines.</p>
+          <p style="color: var(--color-text-muted, #94a3b8); font-size: 0.9rem;">
+            Subscribe for priority alerts, examination notices, and term deadlines.
+          </p>
           <form id="footerNewsletterForm" class="newsletter-input-group" novalidate>
             <input type="email" id="footerNewsletterEmail" class="form-input" placeholder="student@university.edu"
-              required />
+              autocomplete="off" required />
             <button type="submit" class="newsletter-btn" aria-label="Subscribe">
               <i class="fa-solid fa-paper-plane"></i>
             </button>
           </form>
+          <!-- Dedicated Status Feedback Message Container -->
+          <span class="newsletter-status-msg" id="newsletterStatusMsg" aria-live="polite"></span>
         </div>
       </div>
 

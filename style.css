@@ -111,7 +111,7 @@
 
 /* Glassmorphic Sticky Header Shell */
 .portal-header {
-  position: sticky;
+  position:fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -2514,4 +2514,45 @@
     flex-direction: row;
     text-align: left;
   }
+}
+
+
+/* Newsletter Container Alignment */
+.newsletter-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Status Message Display */
+.newsletter-status-msg {
+  display: none;
+  font-size: 0.785rem;
+  font-weight: 600;
+  margin-top: 0.35rem;
+  transition: all 0.25s ease;
+}
+
+/* Error State */
+.newsletter-status-msg.error {
+  display: block;
+  color: #f87171 !important; /* Vivid Red */
+}
+
+.newsletter-input-group.has-error .form-input {
+  border-color: #ef4444 !important;
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25) !important;
+}
+
+/* Success State */
+.newsletter-status-msg.success {
+  display: block;
+  color: #34d399 !important; /* Vivid Emerald Green */
+}
+
+.newsletter-input-group.has-success .form-input {
+  border-color: #10b981 !important;
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25) !important;
 }

@@ -141,6 +141,80 @@ if (newsletterForm && newsletterEmail) {
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const newsletterForm = document.getElementById('footerNewsletterForm');
+  const newsletterEmail = document.getElementById('footerNewsletterEmail');
+  const statusMsg = document.getElementById('newsletterStatusMsg');
+
+  if (newsletterForm && newsletterEmail) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    // Clear error as soon as user types
+    newsletterEmail.addEventListener('input', () => {
+      newsletterForm.classList.remove('has-error');
+      if (statusMsg) {
+        statusMsg.className = 'newsletter-status-msg';
+        statusMsg.textContent = '';
+      }
+    });
+
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const emailVal = newsletterEmail.value.trim();
+
+      // Case 1: Empty input
+      if (!emailVal) {
+        newsletterForm.classList.add('has-error');
+        newsletterForm.classList.remove('has-success');
+        if (statusMsg) {
+          statusMsg.className = 'newsletter-status-msg error';
+          statusMsg.textContent = 'Please enter your email address.';
+        }
+        newsletterEmail.focus();
+        return;
+      }
+
+      // Case 2: Invalid email format
+      if (!emailRegex.test(emailVal)) {
+        newsletterForm.classList.add('has-error');
+        newsletterForm.classList.remove('has-success');
+        if (statusMsg) {
+          statusMsg.className = 'newsletter-status-msg error';
+          statusMsg.textContent = 'Please enter a valid email format (e.g., student@university.edu).';
+        }
+        newsletterEmail.focus();
+        return;
+      }
+
+      // Case 3: Valid Email -> Show success message and clear form
+      newsletterForm.classList.remove('has-error');
+      newsletterForm.classList.add('has-success');
+
+      if (statusMsg) {
+        statusMsg.className = 'newsletter-status-msg success';
+        statusMsg.textContent = '✓ Subscribed successfully! Priority alerts enabled.';
+      }
+
+      // Clear the input value
+      newsletterEmail.value = '';
+
+      // Reset success styling after 4 seconds
+      setTimeout(() => {
+        newsletterForm.classList.remove('has-success');
+        if (statusMsg) {
+          statusMsg.className = 'newsletter-status-msg';
+          statusMsg.textContent = '';
+        }
+      }, 4000);
+    });
+  }
+});
+
+
+
+
+
 
 
 

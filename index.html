@@ -781,15 +781,18 @@
 
                 <div class="newsletter-box">
                     <h4 class="footer-heading">Campus Bulletins</h4>
-                    <p style="color: var(--color-text-muted); font-size: 0.9rem;">Subscribe for priority alerts,
-                        examination notices, and term deadlines.</p>
+                    <p style="color: var(--color-text-muted, #94a3b8); font-size: 0.9rem;">
+                        Subscribe for priority alerts, examination notices, and term deadlines.
+                    </p>
                     <form id="footerNewsletterForm" class="newsletter-input-group" novalidate>
                         <input type="email" id="footerNewsletterEmail" class="form-input"
-                            placeholder="student@university.edu" required />
+                            placeholder="student@university.edu" autocomplete="off" required />
                         <button type="submit" class="newsletter-btn" aria-label="Subscribe">
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>
                     </form>
+                    <!-- Dedicated Status Feedback Message Container -->
+                    <span class="newsletter-status-msg" id="newsletterStatusMsg" aria-live="polite"></span>
                 </div>
             </div>
 

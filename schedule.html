@@ -89,8 +89,7 @@
     <section class="classy-hero-section" id="schedule-classy-hero">
         <!-- Full Photographic Background Layer with Overlay -->
         <div class="hero-bg-media-wrap" aria-hidden="true">
-            <img src="./assets/img 10.webp"
-                alt="Campus Architecture & Lecture Complex" class="hero-bg-media-img" />
+            <img src="./assets/img 10.webp" alt="Campus Architecture & Lecture Complex" class="hero-bg-media-img" />
             <!-- Deep Tinted Vignette & Ambient Color Wash -->
             <div class="hero-bg-overlay-tint"></div>
             <div class="hero-bg-radial-spotlight"></div>
@@ -430,8 +429,7 @@
                 <!-- Facility Card 1 -->
                 <article class="facility-card" data-category="amphitheater">
                     <div class="facility-card-media">
-                        <img src="./assets/img 14.webp"
-                            alt="Turing Lecture Amphitheater" class="facility-img" />
+                        <img src="./assets/img 14.webp" alt="Turing Lecture Amphitheater" class="facility-img" />
                         <span class="facility-status-badge available">
                             <span class="badge-dot-live"></span>
                             <span>Open &bull; Verified Airflow</span>
@@ -472,8 +470,7 @@
                 <!-- Facility Card 2 -->
                 <article class="facility-card" data-category="computing">
                     <div class="facility-card-media">
-                        <img src="./assets/img 4.webp"
-                            alt="Quantum Computing Sandbox Lab B-12" class="facility-img" />
+                        <img src="./assets/img 4.webp" alt="Quantum Computing Sandbox Lab B-12" class="facility-img" />
                         <span class="facility-status-badge restricted">
                             <span class="badge-dot-live red"></span>
                             <span>ID Badge Required</span>
@@ -514,8 +511,7 @@
                 <!-- Facility Card 3 -->
                 <article class="facility-card" data-category="research">
                     <div class="facility-card-media">
-                        <img src="./assets/img 15.webp"
-                            alt="Faculty Colloquium & Advisory Deck" class="facility-img" />
+                        <img src="./assets/img 15.webp" alt="Faculty Colloquium & Advisory Deck" class="facility-img" />
                         <span class="facility-status-badge available">
                             <span class="badge-dot-live"></span>
                             <span>Open &bull; Quiet Zone</span>
@@ -985,15 +981,18 @@
 
                 <div class="newsletter-box">
                     <h4 class="footer-heading">Campus Bulletins</h4>
-                    <p style="color: var(--color-text-muted); font-size: 0.9rem;">Subscribe for priority alerts,
-                        examination notices, and term deadlines.</p>
+                    <p style="color: var(--color-text-muted, #94a3b8); font-size: 0.9rem;">
+                        Subscribe for priority alerts, examination notices, and term deadlines.
+                    </p>
                     <form id="footerNewsletterForm" class="newsletter-input-group" novalidate>
                         <input type="email" id="footerNewsletterEmail" class="form-input"
-                            placeholder="student@university.edu" required />
+                            placeholder="student@university.edu" autocomplete="off" required />
                         <button type="submit" class="newsletter-btn" aria-label="Subscribe">
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>
                     </form>
+                    <!-- Dedicated Status Feedback Message Container -->
+                    <span class="newsletter-status-msg" id="newsletterStatusMsg" aria-live="polite"></span>
                 </div>
             </div>
 
