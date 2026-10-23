@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // --- Navigation Drawer & Backdrop Handling ---
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const closeDrawerBtn = document.getElementById('closeDrawerBtn');
   const mobileDrawer = document.getElementById('mobileDrawer');
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // --- Active Nav Link Detection ---
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   const trackedLinks = document.querySelectorAll(
     '.nav-menu .nav-link, .drawer-nav-menu .drawer-nav-link, .footer-links .footer-link'
@@ -47,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // --- Custom Select Dropdowns ---
   const customSelects = document.querySelectorAll('.custom-select-box');
 
   customSelects.forEach((selectBox) => {
@@ -81,12 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
     customSelects.forEach((box) => box.classList.remove('active'));
   });
 
+  // --- Generic Auto-Clear Forms ---
   const validatedForms = document.querySelectorAll('form[data-auto-clear="true"]');
 
   validatedForms.forEach((form) => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      
+
       const inputs = form.querySelectorAll('input:not([type="submit"]):not([type="button"]), textarea');
       let isValid = true;
 
@@ -116,32 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
-  const newsletterForm = document.getElementById('footerNewsletterForm');
-const newsletterEmail = document.getElementById('footerNewsletterEmail');
-
-if (newsletterForm && newsletterEmail) {
-  newsletterForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const emailValue = newsletterEmail.value.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (emailRegex.test(emailValue)) {
-      newsletterEmail.value = '';
-      window.location.href = 'error.html';
-    } else {
-      newsletterEmail.focus();
-    }
-  });
-}
-});
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
+  // --- Single Unified Footer Newsletter Handler ---
   const newsletterForm = document.getElementById('footerNewsletterForm');
   const newsletterEmail = document.getElementById('footerNewsletterEmail');
   const statusMsg = document.getElementById('newsletterStatusMsg');
@@ -149,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (newsletterForm && newsletterEmail) {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    // Clear error as soon as user types
+    // Clear previous error messages when typing starts
     newsletterEmail.addEventListener('input', () => {
       newsletterForm.classList.remove('has-error');
       if (statusMsg) {
@@ -175,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Case 2: Invalid email format
+      // Case 2: Invalid format
       if (!emailRegex.test(emailVal)) {
         newsletterForm.classList.add('has-error');
         newsletterForm.classList.remove('has-success');
@@ -187,31 +166,28 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Case 3: Valid Email -> Show success message and clear form
+      // Case 3: Valid -> Show message, clear field, disable button, wait 1s, redirect
       newsletterForm.classList.remove('has-error');
       newsletterForm.classList.add('has-success');
 
       if (statusMsg) {
         statusMsg.className = 'newsletter-status-msg success';
-        statusMsg.textContent = '✓ Subscribed successfully! Priority alerts enabled.';
+        statusMsg.textContent = '✓ Subscribed successfully!';
       }
 
-      // Clear the input value
       newsletterEmail.value = '';
 
-      // Reset success styling after 4 seconds
+      const submitBtn = newsletterForm.querySelector('.newsletter-btn');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+      }
+
       setTimeout(() => {
-        newsletterForm.classList.remove('has-success');
-        if (statusMsg) {
-          statusMsg.className = 'newsletter-status-msg';
-          statusMsg.textContent = '';
-        }
-      }, 4000);
+        window.location.href = 'error.html';
+      }, 5000); // 1000ms = exactly 1 second
     });
   }
 });
-
-
 
 
 
